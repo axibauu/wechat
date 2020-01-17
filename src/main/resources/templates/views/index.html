@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html data-ng-app="MetronicApp" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <title>融媒体</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" th:href="@{/favicon.ico}"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet"
+          type="text/css"/>
+    <link th:href="@{/assets/global/css/components.min.css}" id="style_components" rel="stylesheet" type="text/css"/>
+  <!-- <link th:href="@{/assets/css/no_subcon.css}" rel="stylesheet" type="text/css"/>-->
+
+    <link th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" rel="stylesheet"
+          type="text/css"/>
+    <link id="ng_load_plugins_before"/>
+    <!-- END DYMANICLY LOADED CSS FILES -->
+    <!-- BEGIN THEME STYLES -->
+    <!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
+    <link th:href="@{/assets/global/plugins/bootstrap-sweetalert/sweetalert.css}" rel="stylesheet" type="text/css"/>
+    <!--<link th:href="@{/assets/global/css/components-rounded.min.css}" id="style_components" rel="stylesheet" type="text/css"/>
+-->
+    <link th:href="@{/assets/global/css/plugins.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/layouts/layout/css/layout.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/layouts/layout/css/themes/default.min.css}" rel="stylesheet" type="text/css"
+          id="style_color"/>
+
+    <link th:href="@{/assets/layouts/layout/css/custom.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/pages/css/profile.min.css}" rel="stylesheet" type="text/css"/>
+    <!-- 全局编辑器样式 -->
+    <link th:href="@{/assets/global/css/style.css}" rel="stylesheet" type="text/css"/>
+ <!--<link th:href="@{/assets/css/main.css}" rel="stylesheet"
+          type="text/css"/>-->
+    <!--<link th:href="@{/assets/global/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css}"
+          type="text/css"/>-->
+<!--    inbox-compose-attachment-->
+    <link th:href="@{/assets/apps/css/inbox.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!-- END THEME STYLES -->
+</head>
+<body ng-controller="AppController"
+      class="page-header-fixed page-sidebar-closed-hide-logo page-on-load page-footer-fixed
+"
+      ng-class="{'page-full-width': settings.layout.pageFullWidthClosed,'page-content-white': settings.layout.pageContentWhite,'page-container-bg-solid': settings.layout.pageBodySolid, 'page-sidebar-closed': settings.layout.pageSidebarClosed,'page-container-bg-solid':settings.layout.containerBgSolid}">
+
+<!-- BEGIN PAGE SPINNER -->
+<div ng-spinner-bar class="page-spinner-bar">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+<!-- END PAGE SPINNER -->
+<!-- BEGIN HEADER -->
+<div data-ng-include="'tpl/header.html'" data-ng-controller="HeaderController"
+     class="page-header navbar navbar-fixed-top"></div>
+<!-- END HEADER -->
+<div class="clearfix"></div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController"
+         class="page-sidebar-wrapper"></div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content" style="background-color: #f1f3fa">
+            <div ui-view class="fade-in-up"></div>
+        </div>
+    </div>
+</div>
+<div data-ng-include="'tpl/footer.html'" data-ng-controller="FooterController" class="page-footer"></div>
+<script th:src="@{/js/scripts/hashmd5.js}" type="text/javascript"></script>
+<script th:src="@{/js/scripts/StringUtil.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js}"
+        type="text/javascript"></script>
+<!--
+<script th:src="@{/assets/global/plugins/bootstrap-select/js/bootstrap-select.js}"
+        type="text/javascript"></script>
+-->
+<link th:href="@{/assets/global/plugins/select2/css/select2.min.css}" rel="stylesheet" type="text/css" />
+<link th:href="@{/assets/global/plugins/select2/css/select2-bootstrap.min.css}" rel="stylesheet" type="text/css" />
+<script th:src="@{/assets/global/plugins/select2/js/select2.full.min.js}" type="text/javascript"></script>
+
+
+<script th:src="@{/assets/global/plugins/select2/js/select2.js}"
+        type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"
+        type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/js.cookie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/angularjs/angular.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/angularjs/angular-sanitize.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/angularjs/angular-touch.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/angularjs/plugins/angular-ui-router.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/angularjs/plugins/ocLazyLoad.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/angularjs/ng-file-upload.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/main.js}" type="text/javascript"></script>
+<script th:src="@{/js/routers.js}" type="text/javascript"></script>
+<script th:src="@{/js/directives.js}" type="text/javascript"></script>
+<script th:src="@{/js/services.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/app.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/layouts/layout/scripts/layout.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/layouts/global/scripts/quick-sidebar.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/layouts/global/scripts/quick-nav.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/layouts/layout/scripts/demo.min.js}" type="text/javascript"></script>
+<script th:inline="javascript">
+    var link =/*[[@{/ueditor}]]*/ 'test';
+    /* window.UEDITOR_SERVER_URL = "http://localhost:8500"+link;*/
+    window.UEDITOR_SERVER_URL = link;
+
+</script>
+<script type="text/javascript" charset="utf-8" th:src="@{/assets/global/plugins/editor/ueditor.config.js}"></script>
+<script type="text/javascript" charset="utf-8" th:src="@{/assets/global/plugins/editor/ueditor.all.js}"></script>
+<script type="text/javascript" charset="utf-8"
+        th:src="@{/assets/global/plugins/editor/135editor.js}"></script>
+<!--<script type="text/javascript" charset="utf-8" th:src="@{/assets/global/plugins/editor/toolsBar.js}"></script>-->
+<script type="text/javascript" charset="utf-8" th:src="@{/assets/global/plugins/editor/lang/zh-cn/zh-cn.js}"></script>
+<script type="text/javascript" charset="utf-8"
+        th:src="@{/assets/global/plugins/editor/angular-sanitize.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-toastr/toastr.min.css}"/>
+<script th:src="@{/assets/global/plugins/bootstrap-toastr/toastr.min.js}"></script>
+
+<!-- jquery-confirm插件相关依赖 -->
+<link th:href="@{/assets/global/jquery-confirm/jquery-confirm.css}" rel="stylesheet" type="text/css"/>
+<script th:src="@{/assets/global/jquery-confirm/jquery-confirm.js}" type="text/javascript"></script>
+
+<!-- 输入校验插件 -->
+<link th:href="@{/assets/global/vendor/css/bootstrapValidator.min.css}" rel="stylesheet" type="text/css"/>
+<script th:src="@{/assets/global/vendor/js/bootstrapValidator.min.js}" type="text/javascript"></script>
+
+<!--ztree插件-->
+<link th:href="@{/assets/global/plugins/ztree/css/zTreeStyle/zTreeStyle.css}" rel="stylesheet" type="text/css"/>
+<script th:src="@{/assets/global/plugins/ztree/jquery.ztree.all.min.js}" type="text/javascript"></script>
+<!--皮皮时光机-->
+<link   th:href="@{/assets/global/plugins/weibo/spring/css/timer.css?ver=201507063}" rel="stylesheet"
+       type="text/css" />
+<link   th:href="@{/assets/global/plugins/weibo/spring/css/basic.css?ver=201507063}" rel="stylesheet"
+        type="text/css" />
+<link   th:href="@{/assets/global/plugins/weibo/spring/css/head.css?ver=201507063}" rel="stylesheet"
+        type="text/css" />
+
+<!--datetimepicker插件-->
+<link th:href="@{/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css}" rel="stylesheet"
+      type="text/css"/>
+<script th:src="@{/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js}"
+        type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js}"
+        type="text/javascript"></script>
+
+<!--layer插件-->
+<script th:src="@{/assets/global/plugins/layer/layer.js}" type="text/javascript"></script>
+
+<!--表单验证插件-->
+<script th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-validation/js/localization/messages_zh.min.js}" type="text/javascript"></script>
+<!--自定义表单验证-->
+<script th:src="@{/js/scripts/custom-validation.js}" type="text/javascript"></script>
+<!--sweetalert 弹出框-->
+<script th:src="@{/assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js}" type="text/javascript"></script>
+<!--bootstrap-growl 消息框-->
+<script th:src="@{/assets/global/plugins/bootstrap-growl/jquery.bootstrap-growl.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/apps/scripts/inbox.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/echarts/echarts-all.js}" type="text/javascript"></script>
+
+
+<style>
+    .edui-button.edui-for-135editor .edui-button-wrap .edui-button-body .edui-icon{
+
+        background-image: url("http://static.135editor.com/img/icons/editor-135-icon.png") !important;
+
+        background-size: 85%;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
+
+    }
+</style>
+
+</body>
+<!-- END BODY -->
+</html>

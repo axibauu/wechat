@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gpower.modules.user.dao.UserGroupDao">
+
+    <select id="findGroupId" resultType="com.gpower.modules.user.entity.Group" >
+        select gp.* from  gp_group gp,gpuser_group gup, gpuser gu where gu.name
+ like CONCAT('%',#{name},'%') and
+         gu.id=gup.userId and  gp.id=gup.groupId
+    </select>
+</mapper>

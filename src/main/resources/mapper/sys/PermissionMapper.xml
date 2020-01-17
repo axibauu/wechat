@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gpower.modules.user.dao.PermissionDao">
+   <select id="selectPermissionByUserId"  parameterType="java.lang.String" resultType="com.gpower.modules.user.entity.Permission">
+   		select DISTINCT permission.*
+			from gpuser_role userRole
+			LEFT JOIN gprole_permission rolePermission on rolePermission.role_id=userRole.role_id
+			LEFT JOIN gpermission permission on permission.id=rolePermission.permission_id
+			where userRole.user_id=#{userId}
+   </select>
+</mapper>

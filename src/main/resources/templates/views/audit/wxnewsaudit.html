@@ -1,0 +1,276 @@
+<!<!-- BEGIN PAGE HEADER-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" href="wechatEditor/css/wxeditor.css">
+<link rel="stylesheet" href="assets/css/no_subcon.css">
+<style>
+    .normal {
+        border: 1px solid #F2F2F2
+    }
+
+    .selectedNews {
+        border: 5px solid #F2F2F2
+    }
+</style>
+
+<div class="page-bar" style="background-color: #1111">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">公众号管理</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">文本审核</a>
+
+        </li>
+    </ul>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart font-green"></i>
+                    <span class="caption-subject font-green bold uppercase"> 审核图文消息</span>
+                </div>
+            </div>
+
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="container-fluid sub-container-fluid">
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title tabbable-line">
+                                    <div class="caption caption-md">
+                                        <i class="icon-globe theme-font hide"></i>
+                                        <span
+                                                class="caption-subject font-blue-madison bold uppercase">图文审核</span>
+                                    </div>
+                                </div>
+
+                                <div  class="table-toolbar">
+                                    <div class="row">
+                                        <div class="col-md-10" style="">
+                                            <div>
+                                                <h2 class="rich_media_title" id="activity-name"></h2>
+                                            </div>
+
+                                            <div id="meta_content" class="rich_media_meta_list">
+
+                                           <span  id="profileBt">
+                         <a href="javascript:void(0);" id="js_name">
+                          {{editmessage.wxAccount.name}}                    </a>
+                       </span>
+                                                <em id="publish_time"
+                                                    class="rich_media_meta rich_media_meta_text">{{audit.createDate}}</em>
+                                            </div>
+                                            <div class="rich_media_content " id="js_content">
+                                                <section data-id="33" style="border:0 none;" class="recommend-style-content">
+                                                    <h2 style="margin: 8px 0px 0px; padding: 0px; font-weight:bold;font-size:16px;line-height:28px;  max-width: 100%;color:rgb(0, 112, 192); min-height: 32px;border-bottom: 2px solid rgb(0, 112, 192); text-align: justify;"><span class="autonum" placeholder="1" style="background-color:rgb(0, 112, 192); border-radius:80% 100% 90% 20%; color:rgb(255, 255, 255); display:block; float:left; line-height:20px; margin:0px 8px 0px 0px; max-width:100%; padding:4px 10px; word-wrap:break-word !important" data-original-title="" title="">1</span><strong class="item-brush" data-brushtype="text">  {{news.title}}</strong></h2>
+                                                </section><section data-id="89537" style="border:0 none;" class="recommend-style-content">
+                                                <section style="border:0;padding:0;margin:0 auto;text-align:left;white-space:normal;display:inline-block">
+                                                    <section style="float:left;vertical-align:top">
+                                                        <section style="width:60px;text-align:center;border-radius:100%;display:inline-block;color:#FFF;vertical-align:top" data-width="60px"></section>
+                                                    </section>
+                                                    <section style="padding:0;margin-left:70px;text-align:left;font-size:14px;color:#333;line-height:25px">
+                                                        <p style="padding:0;margin:0 0 0 10px;clear:none;font-size:14px;display:inline-block;color:#51b8d2"></p>
+                                                        <p style="padding:0;margin:0 0 0 5px;clear:none;font-size:12px;display:inline-block;color:#999"></p>
+                                                        <section data-style="clear:none;" style="padding:0;margin:0 0 0 10px;color:#787878">
+                                                            <p class="item-brush" data-brushtype="text" style="clear:none;">
+
+                                                                {{editmessage.text.content}}
+                                                                </span>
+                                                            </p>
+                                                        </section>
+                                                    </section>
+                                                    <section style="clear:both;"></section>
+                                                </section>
+                                            </section><section data-id="188470" style="border:0 none;" class="recommend-style-content">
+                                                <section style="text-align: center;">
+                                                    <section data-width="50%" style="display: inline-block; vertical-align: top; width: 25%;">
+                                                        <section style=" text-align: center; margin: 0.5em; box-shadow: rgb(102, 102, 102) 3.53553px 3.53553px 8px;  ">
+
+                                                        </section>
+                                                    </section>
+                                                </section>
+
+                                            </section><p><br  /></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="form-group footer-btn"
+                             style="margin-top: 24px;">
+                            <input type="submit"
+                                   class="btn btn-primary"
+                                   value="通过"
+                                   ng-click="auditpass()"/>
+                            <input type="submit"
+                                   class="btn btn-success"
+                                   value="预览"
+                                   ng-click="preview(editmessage)"/>
+                            <input type="submit"
+                                   class="btn btn-success"
+                                   value="驳回"
+                                   ng-click="Reject()"/>
+                            <input type="button"
+                                   class="btn btn-default"
+                                   onclick="window.history.go(-1);"
+                                   value="关闭"/>
+                        </div>   </div>
+
+                    <div class="modal fade  preview-360 in" id="preview-msg" tabindex="-1" role="dialog" data-backdrop="static" aria-hidden="false" >
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="background: transparent;position:relative;box-shadow: none;border: none;">
+                                <ul class="nav nav-tabs  ">
+                                    <li class="tab_img_list "><a style="color: #333;display: inline-block;background: #007fcc;  padding:5px 10px; color:#fff; border-radius: 5px 5px 0 0;  margin: 0;border:0;" href=""  ng-click="previewShowList=true">图文消息</a></li>
+                                    <li class="tab_info_list" ><a style="color: #333;display: inline-block;background: #fff;  padding:5px 10px; color:#333; border-radius: 0 0 5px 5px;  margin: 0;border:0;" href="" ng-click="showDetail(selectedNews)" >消息正文</a></li>
+                                    <li class="tab_info_list"><a
+                                            style="color:#FFF;opacity:1;margin: 100% 0 0 0;float: none;background: #fff;  color:#333; padding:5px 10px;border-radius: 5px;" data-dismiss="modal">关闭</a></li>
+                                </ul>
+                                <div class="modal-body" style="overflow: hidden;padding: 0;">
+                                    <section id="preview-phone"
+                                             style="padding: 2px 0;background-image:url(assets/img/weixin_phone_bg.png);background-size: cover;">
+                                        <section id="preview-body" style="padding:0px 12px 0 17px;overflow-x:hidden;overflow-y:auto;">
+                                            <section style="margin-bottom:20px;">
+                                                <p  id="wxaccountname" style="margin-bottom: 14px;text-align:center;
+                            background:#000;
+                            color:white; padding:8px 0;font-size:14px;line-height: 1.6;"></p>
+                                            </section>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab_img_list" ng-show="previewShowList">
+                                                    <div class="thumbnailList" ng-repeat="news in newsList">
+                                                        <a href="" class="thumbnail"  ng-click="showDetail(news)">
+                                                            <img ng-if="news.thumbImageName!=null"
+                                                                 ng-src="storage/wx/{{news.thumbImageName}}" alt="">
+                                                            <img
+                                                                    ng-if="news.thumbImageName==null"  src="assets/img/default-thumb.jpg" alt="">
+                                                            <span class="thumbnail-title" >{{news.title}}</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane active" id="tab_info_content" ng-show="!previewShowList">
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </section>
+                                </div>
+
+                            </div>
+                        </div>
+                   <!-- <div class="modal fade  preview-360 in" id="preview-msg" tabindex="-1"
+                          role="dialog" data-backdrop="static" aria-hidden="false" >
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="background: transparent;position:relative;box-shadow: none;border: none;">
+                                <ul class="nav nav-tabs  ">
+                                    <li class="tab_img_list "><a style="color: #333;display: inline-block;background: #007fcc;  padding:5px 10px; color:#fff; border-radius: 5px 5px 0 0;  margin: 0;border:0;" href=""  ng-click="previewShowList=true">图文消息</a></li>
+                                    <li class="tab_info_list" ><a style="color: #333;display: inline-block;background: #fff;  padding:5px 10px; color:#333; border-radius: 0 0 5px 5px;  margin: 0;border:0;" href="" ng-click="showDetail()" >消息正文</a></li>
+                                    <li class="tab_info_list"><a
+                                            style="color:#FFF;opacity:1;margin: 100% 0 0 0;float: none;background: #fff;  color:#333; padding:5px 10px;border-radius: 5px;" data-dismiss="modal">关闭</a></li>
+                                </ul>
+                                <div class="modal-body" style="overflow: hidden;padding: 0;">
+                                    <section id="preview-phone"
+                                             style="padding: 2px 0;background-image:url(assets/img/weixin_phone_bg.png);background-size: cover;">
+                                        <section id="preview-body" style="padding:0px 12px 0 17px;overflow-x:hidden;overflow-y:auto;">
+                                            <section style="margin-bottom:20px;">
+                                                <p  id="wxaccountname" style="margin-bottom: 14px;text-align:center;
+                            background:#000;
+                            color:white; padding:8px 0;font-size:14px;line-height: 1.6;"></p>
+                                            </section>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab_img_list" ng-show="previewShowList">
+                                                    <div class="thumbnailList" ng-repeat="news in newsList">
+                                                        <a href="" class="thumbnail"  ng-click="showDetail(news)">
+                                                            <img ng-if="news.thumbImageName!=null"
+                                                                 ng-src="{{wxurl}}/wx/{{previewContent.wxAccountID}}/{{news.thumbImageName}}" alt="">
+                                                            <img
+                                                                    ng-if="news.thumbImageName==null"  src="assets/img/default-thumb.jpg" alt="">
+                                                            <span class="thumbnail-title" >{{news.title}}</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane active" id="tab_info_content" ng-show="!previewShowList">
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                </div>    </div>    </div>
+
+                    <div class="modal fade" id="weixinPublishNumber" role="dialog" aria-labelledby="weixinPublishNumberLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-lg" style="width:500px">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-hidden="true"></button>
+                                    <h4 class="modal-title" id="weixinPublishNumberLabel" ng-bind="formName"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form name="weixinPublishNumberForm" id="weixinPublishNumberForm" class="form-horizontal"
+                                          novalidate="novalidate">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div  class="col-md-5">
+                                                    <label class="control-label  ">驳回原因:(非必填)
+                                                        <span class="required">  </span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="portlet-body">
+                                                    <div class="form-group">
+
+                                                        <div class="col-md-12">
+                                                     <textarea class="form-control" id="code_editor_demo_4" rows="5"
+                                                               ng-change="changeText()"
+                                                               ng-model="audit.content"></textarea></li>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default"  data-dismiss="modal">取消</button>
+                                    <button type="submit" class="btn btn-primary blue"
+                                            data-dismiss="modal"
+                                            ng-click="submitWxtextContentForm()">提交
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+</body>
+</html>

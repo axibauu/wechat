@@ -1,0 +1,677 @@
+<div>
+    <style>
+
+        .channelConfig .channelimg{width:100%;height:100%; position: relative;  vertical-align: middle;background-color: #fff;border:1px solid #ddd;border-radius: 2px;overflow: hidden;}
+        .channelimg .action{background-color: #00AAFF;border:none;border-radius: 2px;color:#fff;width: 72px;text-align: center;margin:5px 5px 5px 0px;padding:1px;float:right;}
+        .channelConfig .channelimg .form-control{position: absolute;top:0;left:0; filter:alpha(opacity=0);
+            -moz-opacity:0;opacity:0;width: 100%;cursor: pointer;   text-align: center;  vertical-align: middle; }
+        .texta{
+            text-align: center;float:left;
+            vertical-align: middle;
+        }
+
+    </style>
+    <script>
+
+    </script>
+    <div class="page-bar" style="background-color: #1111">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="#">帐号管理</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">新媒体矩阵管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light bordered" style="height: 600px">
+                <div class="portlet-title tabbable-line">
+                    <ul class="nav nav-tabs" style="float: left">
+                        <li class="active">
+                            <a data-toggle="tab" ng-click="viewAllAccount()">已绑定帐号</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" shiro:hasPermission="user" ng-click="addAccount()">添加帐号</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="portlet-body" ng-show="viewAccount">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="mt-widget-1" ng-click="addWXAccount()">
+                                <div class="mt-icon">
+                                    <a href="#">
+                                        <i class="icon-plus"></i>
+                                    </a>
+                                </div>
+                                <div class="mt-img">
+                                    <img src="assets/global/img/wx.png"></div>
+                                <div class="mt-body">
+                                    <h3 class="mt-username">微信</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2" ng-click="addWBAccount()">
+                            <div class="mt-widget-1">
+                                <div class="mt-icon">
+                                    <a href="#">
+                                        <i class="icon-plus"></i>
+                                    </a>
+                                </div>
+                                <div class="mt-img">
+                                    <img src="assets/global/img/wb.png"></div>
+                                <div class="mt-body">
+                                    <h3 class="mt-username">微博</h3>
+                                </div>
+                            </div>
+                        </div>
+                    <!--    <div class="col-md-3">
+                            <div class="mt-widget-1">
+                                <div class="mt-icon">
+                                    <a href="#">
+                                        <i class="icon-plus"></i>
+                                    </a>
+                                </div>
+                                <div class="mt-img">
+                                    <img src="assets/global/img/wx.png"></div>
+                                <div class="mt-body">
+                                    <h3 class="mt-username">其它</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mt-widget-1">
+                                <div class="mt-icon">
+                                    <a href="#">
+                                        <i class="icon-plus"></i>
+                                    </a>
+                                </div>
+                                <div class="mt-img">
+                                    <img src="assets/global/img/wx.png"></div>
+                                <div class="mt-body">
+                                    <h3 class="mt-username">其它</h3>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+
+                <div class="portlet-body" ng-show="view">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" ng-click="viewWx()" aria-expanded="false"> 微信 </a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" ng-click="viewWb()" aria-expanded="true"> 微博 </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="portlet-body">
+                            <table class="table table-striped table-bordered table-hover table-checkable sortField-column"
+                                   ng-show="viewWx1">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        <label>
+                                            <span>#</span>
+                                        </label>
+                                    </th>
+                                    <th>微信公众号</th>
+                                    <th>帐号类型</th>
+                                    <th>是否认证</th>
+                                    <th>是否正常</th>
+                                    <th>创建日期</th>
+                                    <th>编辑</th>
+                                    <th>删除</th>
+                                    <th>激活/禁用</th>
+                                    <th   shiro:hasPermission="user">授权</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="odd gradeX" ng-repeat="Account in WxAccountList">
+                                    <td>
+                                        <label>
+                                            <span>{{$index+1}}</span>
+                                        </label>
+                                    </td>
+                                    <td>{{Account.name}}</td>
+                                    <td>
+
+                                        <p ng-if="Account.type==1">订阅号</p>
+                                        <p ng-if="Account.type==2">服务号</p>
+                                    </td>
+                                    <td>
+                                        <p ng-if="Account.authentication==0">未认证</p>
+                                        <p ng-if="Account.authentication==1">已认证</p>
+
+                                    </td>
+                                    <td>
+                            <span ng-if="Account.status==0" class="label label-danger"
+                                  style="width: 60px; display: inline-block;">不正常</span>
+                                        <span ng-if="Account.status==1" class="label label-success"
+                                              style="width: 60px; display: inline-block;">正常</span>
+
+                                    </td>
+                                    <td>
+                                        {{Account.creationDate}}
+                                    </td>
+                                    <td>
+                                        <a href="" ng-click="editWxAccount(Account)">编辑</a>
+                                    </td>
+                                    <td>
+                                        <a href="" ng-click="deleteWxAccount(Account)">删除</a>
+                                    </td>
+                                    <td>
+
+                                        <a href="" ng-if="Account.status==1"
+                                           ng-click="forbiddenWxAccount(Account)">禁用</a>
+                                        <a href="" ng-if="Account.status==0"
+                                           ng-click="forbiddenWxAccount(Account)">激活</a>
+                                    </td>
+                                    <td  shiro:hasPermission="user">      <a href="" ng-if="Account.status==1"
+                                                 ng-click="wxGiveUser(Account)"> 授权</a>
+                                       </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="span12" ng-show="viewWx1">
+                                <gpower-page conf="pageConf"></gpower-page>
+                            </div>
+                            <table class="table table-striped table-bordered table-hover table-checkable sortField-column"
+                                   id="sample_1" ng-show="viewWb1">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        <label>
+                                            <span>#</span>
+                                        </label>
+                                    </th>
+                                    <th>微博</th>
+                                    <th>创建日期</th>
+                                    <th>是否正常</th>
+                                    <th>编辑</th>
+                                    <th>删除</th>
+                                    <th>禁用/激活</th>
+                                    <th>微博授权</th>
+                                    <th  shiro:hasPermission="user">用户授权</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="odd gradeX" ng-repeat="wbAccount in WbAccountList">
+                                    <td>
+                                        <label>
+                                            <span>{{$index+1}}</span>
+                                        </label>
+                                    </td>
+                                    <td>{{wbAccount.name}}</td>
+
+                                    <td>
+
+                                        {{wbAccount.creationDate}}
+
+                                    </td>
+                                    <td>      <span ng-if="wbAccount.status==0" class="label label-danger"
+                                                    style="width: 60px; display: inline-block;">不正常</span>
+                                        <span ng-if="wbAccount.status==1" class="label label-success"
+                                              style="width: 60px; display: inline-block;">正常</span>
+
+
+                                    </td>
+                                    <td>
+
+                                        <a href="" ng-click="editWbAccount(wbAccount)">编辑</a>
+                                    </td>
+                                    <td>
+                                        <a href="" ng-click="deleteWbAccount(wbAccount)">删除</a>
+                                    </td>
+                                    <td>
+
+                                        <a href="" ng-if="wbAccount.status==1"
+                                           ng-click="forbiddenWbAccount(wbAccount)">禁用</a>
+                                        <a href="" ng-if="wbAccount.status==0"
+                                           ng-click="forbiddenWbAccount(wbAccount)">激活</a>
+                                    </td>
+                                    <td>
+
+                                        <a href=""
+                                           ng-click="shouquan(wbAccount)">授权</a>
+
+                                    </td>
+                                    <td  shiro:hasPermission="user">
+
+                                        <a href=""
+                                           ng-click="shouquanwbuser(wbAccount)">授权</a>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="span12" ng-show="viewWb1">
+                                <gpower-page conf="wbpageConf"></gpower-page>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="clearfix margin-bottom-20"></div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="weixinPublishNumber" role="dialog" aria-labelledby="weixinPublishNumberLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true"></button>
+                            <h4 class="modal-title" id="weixinPublishNumberLabel" ng-bind="formName"></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form name="weixinPublishNumberForm" id="weixinPublishNumberForm" class="form-horizontal"
+                                  novalidate="novalidate">
+                                <div class="modal-body">
+                                    <div class="form-group  margin-top-20">
+
+                                        <label class="control-label col-md-3">账户名称
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" class="form-control"
+                                                       name="name"
+                                                       placeholder="请输入账户名称"
+                                                       ng-model="WxAccount.name"/>
+                                                <small>
+                                                <span style="color: red;"
+                                                      ng-show="WxAccountName.flag"> 微信公众号已存在
+                                                    </span>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">账户类型
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <select class="form-control" name="type" id="type"
+                                                    ng-model="WxAccount.type">
+                                                <option value="-1">请选择</option>
+                                                <option value="1">订阅号</option>
+                                                <option value="2">服务号</option>
+                                            </select>
+                                            <!-- <select ng-model="wtype" value="wtype.value" ng-options="wtype.name for wtype in types" >
+                                                 <option value="-1">请选择</option>
+                                             </select>-->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">是否认证
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <select class="form-control" id="authentication"
+                                                    name="authentication"
+                                                    ng-model="WxAccount.authentication">
+                                                <option value="-1">请选择</option>
+                                                <option value="0">未认证</option>
+                                                <option value="1">已认证</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">原始ID
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="originalId" name="originalId"
+                                                       class="form-control"
+                                                       placeholder="请输入原始ID"
+                                                       ng-model="WxAccount.originalId"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">开发者ID
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="appId" name="appId" class="form-control"
+                                                       placeholder="请输入应用ID"
+                                                       ng-model="WxAccount.appId"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">开发者密钥
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="appSecret" name="appSecret"
+                                                       class="form-control"
+                                                       placeholder="请输入应用密钥"
+                                                       ng-model="WxAccount.appSecret"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                               <!--     <div class="form-group channelConfig">
+                                        <label class="control-label col-md-3">上传公众号头像
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6 ">
+                                            <div class="channelimg ">
+                                                <div class="action">上传图片</div>
+                                                <input type="file" id="logo" name="logo" style="vertical-align: middle"
+                                                       class="form-control"
+                                                       placeholder="上传图片"  ngf-select
+                                                       ng-model="WxAccount.logo"/>
+                                            </div>
+                                        </div>
+                                    </div>-->
+
+                                <!--    <div class="form-group "
+                                         ng-if="logowxAccount.logo">
+                                        <label for="name" class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-9">
+                                            <div>
+                                                <img
+                                                      ng-src="storage/wx/{{logowxAccount.logo}}"
+                                                      style="height:
+                                                            100px">
+
+                                            </div>
+
+                                        </div>
+                                    </div>-->
+                                 <!--   <div class="form-group" ng-if="firstLoad">
+                                        <label for="name"
+                                               class="col-sm-5 control-label"></label>
+                                        <div class="col-sm-7">
+
+                                            <div>
+                                                <img ng-src="{{imgSrc}}" style="height:
+                                                            100px">
+                                            </div>
+                                            <a href=""
+                                               ng-click="deleteFile()"><img src="assets/img/order07.png"></a>
+                                        </div>
+                                    </div>-->
+
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary blue"
+                                    ng-disabled="WxAccountName.flag"
+                                    ng-click="submitWxAccountForm()">确定
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--微博帐号添加-->
+            <div class="modal fade" id="wbAccount" role="dialog" aria-labelledby="wbAccountLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true"></button>
+                            <h4 class="modal-title" id="wbAccountLabel" ng-bind="wbformName"></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form name="wbAccountForm" id="wbAccountForm"
+
+                                  class="form-horizontal"
+                                  novalidate="novalidate">
+                                <div class="modal-body">
+                                    <div class="form-group  margin-top-20">
+
+                                        <label class="control-label col-md-3">微博
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" class="form-control"
+                                                       name="name" id="name"
+                                                       placeholder="请输入微博名称"
+                                                       ng-model="weibo.name"/>
+                                                <small><span style="color: red;"
+                                                             ng-show="WbAccountName.flag"> 微博已存在
+                                    </span></small>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">应用ID
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="clientID" name="clientID"
+                                                       class="form-control"
+                                                       placeholder="请输入应用ID"
+                                                       ng-model="weibo.clientID"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">应用密钥
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="clientSecret" name="clientSecret"
+                                                       class="form-control"
+                                                       placeholder="请输入应用密钥"
+                                                       ng-model="weibo.clientSecret"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                              <!--      <div class="form-group channelConfig">
+                                   <label class="control-label col-md-3">请上传微博头像
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="channelimg">
+                                            <div class="action">上传图片</div>
+                                                <input type="file" style="vertical-align: middle"
+                                                       class="form-control"
+                                                       placeholder="请选择图片" ngf-select
+                                                       ng-model="weibo.logo"/>
+                                            </div>  </div>
+                                        </div>-->
+
+
+
+
+                               <!--     <div class="form-group" ng-if="logoweibo.logo">
+
+                                        <label for="name" class="col-sm-3 control-label"></label>
+                                        <div class="mt-card-item">
+                                        <div class="col-sm-9 mt-card-avatar mt-overlay-1">
+                                            <div >
+
+                                                <img
+                                                      ng-src="storage/wb/{{logoweibo.logo}}"
+                                                      style="height: 100px">
+                                            </div>  </div>
+                                          &lt;!&ndash;  <a href=""
+                                               ng-click="deleteFile()"><img
+                                                    src="assets/img/order07.png"></a>&ndash;&gt;
+                                        </div>
+                                    </div>-->
+
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button ng-show="addwbimage"  type="submit" class="btn btn-primary blue"
+                                    ng-disabled="WbAccountName.flag"
+                                    ng-click="submitWeiboForm()">授权并保存
+                            </button>
+                            <button ng-show="editwbimg"  type="submit" class="btn btn-primary blue"
+                                    ng-disabled="WbAccountName.flag"
+                                    ng-click="submitWeiboForm()">保存
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--微信授权-->
+            <div class="modal fade modal-small" id="weixingroupModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="groupUserModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="margin-top: 20%;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">{{groupName}}-</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="User_group_list" >
+                                        <h2>所有用户</h2>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="请输入用户名" name="name" ng-model="allUserName">
+                                        </div>
+                                        <div class="UserGrupList row pre-scrollable">
+
+                                            <ul class="user_list">
+                                                <li ng-repeat="user in userList | filter: {status:0,name:allUserName}" title="点击添加"><a href="" ng-click="selectUser(user)"><p ng-if="user.fullName!=null && user.fullName!=''">{{user.fullName}}({{user.name}})</p><p ng-if="user.fullName==null || user.fullName==''">{{user.name}}</p></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2" >
+
+                                    <br><br><br><br><br><br><br><br><br><br><br>
+                                    <div class="btnList" >
+                                        <a href="" ng-click="addAllUser(userList)"><img
+                                                src="assets/img/order08.png"></a>
+                                        <a href="" ng-click="removeAllUser(userList)"><img src="assets/img/order09.png"></a>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-5">
+                                    <div class="User_group_list">
+                                        <h2>授权用户</h2>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="请输入用户名" name="name" ng-model="ownUserName">
+                                        </div>
+                                        <div class="UserGrupList row pre-scrollable">
+                                            <ul class="user_list">
+                                                <li ng-repeat="user in userList | filter: {status: 1,name:ownUserName}" title="点击删除"><a href=""  ng-click="unSelectUser(user)"><p ng-if="user.fullName!=null && user.fullName!=''">{{user.fullName}}({{user.name}})</p><p ng-if="user.fullName==null || user.fullName==''">{{user.name}}</p></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer text-center">
+                            <button type="button" class="btn btn-primary" ng-click="updateShouquanWx()">确定</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--微博授权-->
+            <div class="modal fade modal-small" id="wbgroupModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="groupUserModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="margin-top: 20%;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">{{groupName}}-</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="User_group_list" >
+                                        <h2>所有用户</h2>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="请输入用户名" name="name" ng-model="allUserName">
+                                        </div>
+                                        <div class="UserGrupList row pre-scrollable">
+
+                                            <ul class="user_list">
+                                                <li ng-repeat="user in wbuserList | filter: {status:0,name:allUserName}" title="点击添加"><a href="" ng-click="selectUser(user)"><p ng-if="user.fullName!=null && user.fullName!=''">{{user.fullName}}({{user.name}})</p><p ng-if="user.fullName==null || user.fullName==''">{{user.name}}</p></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2" >
+
+                                    <br><br><br><br><br><br><br><br><br><br><br>
+                                    <div class="btnList" >
+                                        <a href="" ng-click="addAllUser(wbuserList)"><img
+                                                src="assets/img/order08.png"></a>
+                                        <a href="" ng-click="removeAllUser(wbuserList)"><img src="assets/img/order09.png"></a>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-5">
+                                    <div class="User_group_list">
+                                        <h2>授权用户</h2>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="请输入用户名" name="name" ng-model="ownUserName">
+                                        </div>
+                                        <div class="UserGrupList row pre-scrollable">
+                                            <ul class="user_list">
+                                                <li ng-repeat="user in wbuserList | filter: {status: 1,name:ownUserName}" title="点击删除"><a href=""  ng-click="unSelectUser(user)"><p ng-if="user.fullName!=null && user.fullName!=''">{{user.fullName}}({{user.name}})</p><p ng-if="user.fullName==null || user.fullName==''">{{user.name}}</p></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer text-center">
+                            <button type="button" class="btn btn-primary" ng-click="updateShouquanWb()">确定</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,157 @@
+
+.clearfix:before,.clearfix:after {content: " ";display: table;}
+.clearfix:after {clear: both;}
+body {font-family: '微软雅黑','Microsoft yahei', Calibri, Arial, sans-serif;color: #47a3da;}
+a {color: #333;text-decoration: none;}
+a:hover {color: #085fb1;}
+.main,.container > header {width: 90%;max-width: 69em;margin: 0 auto;}
+
+.lflogo img{max-width: 100%;}
+.content{width:576px;height:386px; margin:0 auto; position: absolute;top:50%;left:50%;overflow: hidden;color:#333;margin-left:-288px;margin-top:-193px;}
+.contentLf{float: left;width: 50%;height:100%;  background: url(../img/con_bg.png) repeat;}
+.contentRt{float: right;width: 50%;height:100%; background: #fff;}
+.lflogo{text-align: center;height:100%;padding:47% 13%;}
+.lflogo a{display: block;margin-top:2em;color:#085fb1;}
+.lflogo a:hover{color:#024a7d;}
+.form-signin{margin:0 auto;height:100%;padding:0 10%;}
+.form-signin-heading{text-align: center;padding:9% 0 8%;font-size: 16px;color:#777;font-weight: normal;}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    font-size: 12px;
+    font-family: "Microsoft yahei";
+    
+}
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-bottom: 10px;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.checkbox, .radio {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox {
+    
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 2px solid #bbd2e8;
+    margin-top:10px;
+   
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1057a7;
+    border-color: #bbd2e8;
+}
+.btn-group-lg>.btn, .btn-lg {
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: 1.3333333;
+    
+}
+.btn-block {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    font-family: "Microsoft yahei";
+}
+.btn-block:hover{background-color:#024A7D;}
+
+.verifyList{padding:4px 0;overflow: hidden;}
+.form-signin input.code{width: 53%;float:left;border:1px solid #ccc;border-bottom-right-radius: 4px;    border-bottom-left-radius: 4px;margin-left:1px;margin-bottom: 0px;}
+.verifyList img{float: right;width: 40%;}
+
+.rtDetailList{margin:10px 0 5px;overflow: hidden;}
+.rtDetailList a{font-size: 12px;color:#999;display: block;}
+.rtDetailList .downCre{float: left;}
+.rtDetailList .manual{float: right;}
+.contentRt p{font-size: 12px;color:#999;}
+.contentRt h4{float: right;margin-top:10px;}
+
+
+@media screen and (max-width:800px) {
+    
+}
+
+@media screen and (max-width:640px) {
+    .content{width: 65%;height:70%;transform: translate(-50%,-50%);margin:0;}
+    .form-signin-heading{font-size: 1rem;padding: 9% 0 8%;}
+    .form-signin .form-control{padding: 5px 7px;}
+    .btn-group-lg > .btn, .btn-lg {padding: 7px 12px;font-size: 14px;}
+    .content{height:80%;}
+    .contentLf{float: none;width: 100%;height:auto;}
+    .contentRt{float: none;width: 100%;height:67%;}
+    .lflogo{padding:0;height:auto;max-width: 150px;margin:0 auto;padding:10px 0;}
+    .lflogo a{margin-top: 1em;text-align: right;font-size: 0.7em;display: none;}
+    .form-signin-heading{padding:5% 0 4%;}
+    .verifyList img{width: 35%;}
+    .form-signin input.code{width: 50%;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

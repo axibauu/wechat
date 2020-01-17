@@ -1,0 +1,170 @@
+<div>
+    <style>
+        td
+        {
+            text-align:center;
+        }
+        th
+        {
+            text-align:center;
+        }
+    </style>
+    <div class="page-bar" style="background-color: #1111">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="#">数据统计</a>
+
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+
+                        <span class="caption-subject font-green bold uppercase"> 数据统计</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <form class="form-inline">
+                                    <div class="col-md-5">
+                                    <div class="form-group" >
+                                        <select class="form-control" name=""
+                                                ng-model="account.type" ng-change="selectTypeChange()">
+                                            <option value="1">微信公众号</option>
+                                            <option value="2">微博</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" >
+                                        <select class="form-control" name=""
+                                                ng-model="account.list" ng-change="selectAccountChange()">
+                                            <option value="-1" >全部账号</option>
+                                            <option ng-repeat="account in accountlist"
+                                                    value="{{account.id}}">{{account.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button class="btn btn-primary blue " type="button" id=""
+                                                name=""
+                                                ng-click="selectData()">查询
+                                        </button>
+                                    </div>
+                            </div>
+                                    <div class="form-group col-md-offset-4" ng-show="viewweixin">
+                                        <input class="btn btn-primary blue"
+                                               type="button"
+                                               name="" value="近三天" ng-click="changetime3()"
+                                        >
+                                        <input class="btn btn-primary blue "   type="button"
+                                               value="近五天" ng-click="changetime5()">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <table ng-show="viewweibo"
+                           class="table table-striped table-bordered table-hover table-checkable sortField-column"
+                           align="center" id="sample_3">
+                        <thead>
+                        <tr>
+                            <th>
+                                <label>
+                                    <span>#</span>
+                                </label>
+                            </th>
+                            <th align="center">账户名称</th>
+
+                            <th align="center">微博数</th>
+                            <th align="center">关注数</th>
+                            <th align="center">粉丝数</th>
+                            <!--   <th  align="center">粉丝变化数</th>
+                           <th  align="center">huo粉丝数</th>
+                           <th  align="center">发布天数</th>
+                           <th  align="center">新增微博</th>-->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="odd gradeX" ng-repeat="account in wbaccountList">
+                            <td>
+                                <label>
+                                    <span>{{$index+1}}</span>
+                                </label>
+                            </td>
+                            <td>{{account.name}}</td>
+
+                            <td>{{account.statusescount}}</td>
+                            <td>{{account.friendscount}}</td>
+                            <td>{{account.followerscount}}</td>
+                        </tbody>
+                    </table>
+                    <table ng-show="viewweixin"
+                           class="table table-striped table-bordered table-hover table-checkable sortField-column"
+                           align="center">
+                        <thead>
+                        <tr>
+                            <th>
+                                <label>
+                                    <span>#</span>
+                                </label>
+                            </th>
+                            <th align="center">文章标题</th>
+                            <th align="center">阅读入口</th>
+                            <th align="center">日期</th>
+                            <th align="center">原文阅读次数</th>
+                            <th align="center">原文阅读人数</th>
+                            <th align="center">图文阅读次数</th>
+                            <th align="center">图文阅读人数</th>
+                            <th align="center">收藏次数</th>
+                            <th align="center">分享次数</th>
+                            <th align="center">分享场景</th>
+                        </tr>
+                        </thead>
+                        <tbody ng-repeat="account in wbaccountList">
+                        <tr class="odd gradeX"
+                            ng-repeat="detail in account.details track by $index">
+                            <td>
+                                <label>
+                                    <span>{{$index+1}}</span>
+                                </label>
+                            </td>
+                            <td>{{account.title}}</td>
+                            <td>
+                                <a ng-href="{{account.url}}">阅读入口</a>
+                            </td>
+                            <td >
+                                {{detail.statdate}}
+                               <!-- {{account.details[6].statdate}}--></td>
+
+
+                            <td>{{detail.oripagereadcount}}</td><!--原文次数-->
+                            <td>{{detail.oripagereaduser}}</td><!--原文次数-->
+                            <td>{{detail.intpagereadcount}}</td><!--阅读次数-->
+                            <td>{{detail.intpagereaduser}}</td>
+                            <td>{{detail.addtofavcount}}</td>
+
+                            <td>{{detail.sharecount}}</td>
+                            <td>
+                                <span ng-if=detail.share_scene==null>无</span>
+                                <span ng-if=detail.share_scene==1>好友转发</span>
+                                <span ng-if=detail.share_scene==2>朋友圈</span>
+                                <span ng-if=detail.share_scene==3>腾讯微博</span>
+                                <span ng-if=detail.share_scene==244>其他</span>
+                            </td>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,619 @@
+<style>
+    .img-responsive{
+        width:100%;
+        height:65px;
+    }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+
+        vertical-align: middle;
+    }
+
+    td
+    {
+        text-align:center;
+    }
+    th
+    {
+        text-align:center;
+    }
+</style>
+<div class="page-bar" style="background-color: #1111">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">发布平台</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">微博管理</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+
+        <div class="portlet light bordered">
+            <div class="portlet-title tabbable-line">
+                <ul class="nav nav-tabs" style="float: left">
+
+                    <li class="active">
+                        <a data-toggle="tab" ng-click="draftList()">草稿</a>
+                    </li>
+                    <li >
+                        <a data-toggle="tab" ng-click="newweibo()">新建微博</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" ng-click="auditList()">审核管理</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" ng-click="hasPublishList()">已发文章</a>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div ng-show="newpublishweibo" class="inbox">
+                    <div class="inbox-body">
+                        <div class="inbox-header">
+                            <h1 class="pull-left">编辑微博</h1>
+
+                        </div>
+                        <div class="inbox-content">
+                            <form id="myform">
+                            <div class="inbox-form-group" style="margin-top: 10px;">
+                                <label class="control-label">发布账号:</label>
+                                <div id="aa" class="controls">
+                                    <select id="multiple"
+                                            class="form-control select2-multiple" multiple
+                                            ng-model="wbPublish.accounts"
+                                            ng-click="wbSelectChange()">
+                                        <option ng-repeat="account in WbAccountList"
+                                                value="{{account.id}}">{{account.name}}
+                                        </option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="inbox-form-group" style="margin-top: 10px;">
+                                <label class="control-label">发布内容:</label>
+                                <div class="controls">
+                                    <textarea class="form-control" ng-model="wbPublish.content" style="height: 200px"
+                                              placeholder="输入发布内容"></textarea>
+                                </div>
+                            </div>
+                            <div class="inbox-compose-attachment">
+                                <div class="cleafix">
+                                    <button class="btn btn-default"><i class="fa fa-smile-o"></i> 表情</button>
+                                    <input   ngf-select ng-model="wbPublish.image" type="file" name="file"
+                                             id="file"
+                                             οnchange="fileUpload()" style="display:none">
+                                    <button  id ="sf" ng-click="selectfile()"
+                                             class="btn btn-default"><i
+                                            class="fa fa-picture-o"></i> 图片</button>
+                                    <button class="btn btn-default"><i class="fa fa-video-camera"></i> 视频</button>
+                                    <button class="btn btn-default"><i class="fa fa-group"></i> 话题</button>
+                                    <button class="btn btn-default"><i class="fa fa-newspaper-o"></i> 头条新闻</button>
+                                </div>
+
+                                <table   id="hah" ng-if="wbPublish.image!=null&&wbPublish.image!=''"  role="presentation" class="table table-striped margin-top-10">
+                                    <tbody class="files">
+                                    <tr class="template-download fade in">
+                                        <td class="name" width="30%">
+                                            <span  ng-if="wbPublish.image!=null">{{wbPublish.image.name}}</span>
+                                        </td>
+                                        <td class="size" width="40%">
+                                                <span
+                                                        ng-if="wbPublish.image!=null&&wbPublish.image!=''" >{{wbPublish.image.size/1000 | number:0}} KB</span>
+                                        </td>
+                                        <td class="error" width="30%" colspan="2">
+                                            <span ng-if="wbPublish.image!=null&&wbPublish.image!=''" >图片</span>
+                                        </td>
+                                        <td class="delete" width="10%" align="right">
+                                            <button class="btn default btn-sm" data-type=""
+                                                    ng-if="wbPublish.image!=null&&wbPublish.image!=''"
+                                                    data-url="" ng-click="deleteimage(this)">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="inbox-compose-btn">
+
+                                <button shiro:lacksPermission="user" class="btn green"   ng-click="submitAudit()"> 提交审核
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <div class="btn-group" shiro:hasPermission="user">
+                                    <a class="btn btn-default dropdown-toggle green" data-toggle="dropdown" aria-expanded="true"> 发送
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="javascript:;"  ng-click="submitForm()">
+                                                立即发送 </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" ng-click="submitTimerForm()"> 定时发送 </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="btn blue" ng-click="saveForm()">保存草稿
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+
+                                <button class="btn btn-default"  onclick="window.history.go(-1);">关闭
+                                    <i class="fa fa-close"></i>
+                                </button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <!--===========================已发文章===========================-->
+                <div ng-show="publishList">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <span class="btn sbold green"> 已发微博 </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr role="row" class="heading">
+                            <th width="8%"> #</th>
+                            <!--<th width="8%"> 微博头像</th>-->
+                            <th width="20%"> 发布账号 </th>
+                            <th width="20%"> 发布时间 </th>
+                            <th width="25%"> 发送人 </th>
+                            <th width="8"> 发布状态 </th>
+                            <th width="20%"> 操作 </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr   ng-repeat="pwb  in  pwbLish">
+                            <td><span>{{$index+1}}</span></td>
+                          <!--  <td>
+                                <a ng-href="storage/wb/{{pwb.wbAccount.logo}}"
+                                   class="fancybox-button" data-rel="fancybox-button">
+                                    <img class="img-responsive"
+                                         ng-src=storage/wb/{{pwb.wbAccount.logo}} alt=""> </a>
+                            </td>-->
+                            <td>
+                                <span>{{pwb.wbAccount.name}}</span> </td>
+                            <td>
+                                <span>{{pwb.sendDate}}</span>   </td>
+                            <td>
+                                 <span>{{pwb.user.name}}</span>
+                            </td>
+
+                            <td>
+                                <span ng-if="pwb.status==6">发布成功</span>
+                                <span ng-if="pwb.status==7">发布失败</span>
+                            </td>
+                            <td>
+                                <a class="" ng-click="selectpwd(pwb)">查看</a>
+                               <!-- <a class="" ng-click="deletepwd(pwb)">删除</a>-->
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div class="span12">
+                        <gpower-page conf="pageConf"></gpower-page>
+                    </div>
+                </div>
+
+
+                <!--===========================审核管理===========================-->
+                <div ng-show="auditWeibo">
+                    <div class="table-toolbar">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" ng-click="viewdaishenhe()"
+                                   aria-expanded="false"> 待审核微博 </a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab"  ng-click="viewhasshenhe()"
+                                   aria-expanded="true"> 已审核微博 </a>
+                            </li>
+                        </ul>
+
+                        <div  ng-show="daishenhe">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr role="row" class="heading">
+                                    <th width="8%"> #</th>
+                                   <!-- <th width="8%"> 微博头像</th>-->
+                                    <th width="25%"> 微博名字 </th>
+                                    <th width="25%"> 创建时间 </th>
+                                    <th width="18%"> 操作 </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr  ng-repeat="auditwb in waitAuditWb">
+                                 <td><span>{{$index+1}}</span></td>
+                                    <!--   <td>
+                                        <a
+                                                ng-href="storage/wb/{{auditwb.wbAccount.logo}}" class="fancybox-button" data-rel="fancybox-button">
+                                            <img class="img-responsive"
+                                                 ng-src=storage/wb/{{auditwb.wbAccount.logo}} alt=""> </a>
+                                    </td>-->
+                                    <td>
+                                        <span>{{auditwb.wbAccount.name}}111</span> </td>
+                                    <td>
+                                        <span>{{auditwb.creationDate}}</span>
+                                    </td>
+
+                                    <td>
+                                        <a shiro:hasPermission="user"  ng-click="auditpublishwb(auditwb)">审核</a>
+                                       <!-- <a shiro:hasPermission="user"
+                                           ng-click="auditpass(auditwb)">通过</a>
+                                        <a shiro:hasPermission="user"
+                                           ng-click="Reject(auditwb)">退回</a>-->
+
+                                        <a  shiro:lacksPermission="user"
+                                            ng-click="editDraft(auditwb)">编辑</a>
+
+
+
+
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="span12">
+                                <gpower-page conf="waitauditpageConf"></gpower-page>
+                            </div>
+
+                        </div>
+
+                        <div  ng-show="yishenhe">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr role="row" class="heading">
+                                    <th width="8%"> #</th>
+                                  <!--  <th width="8%"> 微博头像</th>-->
+                                    <th width="25%"> 微博名字 </th>
+                                    <th width="25%"> 创建时间 </th>
+                                    <th width="16%"> 审核进度 </th>
+                                    <th width="18%"> 操作 </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="hasadli in auditLish">
+                                    <td><span>{{$index+1}}</span></td>
+                                    <!--<td>
+                                        <a
+                                                ng-href="storage/wb/{{hasadli.wbAccount.logo}}" class="fancybox-button" data-rel="fancybox-button">
+                                            <img class="img-responsive"
+                                                 ng-src="storage/wb/{{hasadli.wbAccount.logo}}" alt=""> </a>
+                                    </td>-->
+                                    <td>
+                                        <span>{{hasadli.wbAccount.name}}</span> </td>
+                                    <td>
+                                        <span>{{hasadli.creationDate}}</span>
+                                    </td>
+                                    <td>  <p class="text-capitalize" ng-if="hasadli.status==4">
+                                        <strong> 已审核</strong>
+                                        <p class="text-capitalize" ng-if="hasadli.status==1">
+                                            <strong> 待审核</strong>
+                                        <p class="text-capitalize" ng-if="hasadli.status==1">
+                                            <strong> 待审核</strong>
+                                        </p>
+
+
+                                    <td>
+                                    <a
+                                            ng-click="chehui(hasadli.id);" >撤回</a>
+
+                                    <div class="btn-group"  ng-if="hasadli.status==4">
+                                        <a   ng-if="hasadli.status==4"  data-toggle="dropdown" aria-expanded="true"> 发送
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="javascript:;"
+                                                   ng-click="submitauditFormnow(hasadli)">
+                                                    立即发送 </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" ng-click="submitauditTimerForm(hasadli)"> 定时发送 </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                    </a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                            <div class="span12">
+                                <gpower-page conf="hasauditpageConf"></gpower-page>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!--===========================草稿===========================-->
+                <div ng-show="draftshow">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <span class="btn sbold green"> 草稿箱 </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr role="row" class="heading">
+                            <th width="8%"> #</th>
+                          <!--  <th width="8%"> 微博头像</th>-->
+                            <th width="25%"> 微博名字 </th>
+                            <th width="25%"> 创建时间 </th>
+                            <th width="20%"> 操作 </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr  ng-repeat="df  in  draftwblist">
+                            <td><span>{{$index+1}}</span></td>
+                            <!--<td>
+                                <a ng-href="storage/wb/{{df.wbAccount.logo}}"
+                                   class="fancybox-button" data-rel="fancybox-button">
+                                    <img class="img-responsive"  style="width:100%; height:65px;"
+                                         ng-src=storage/wb/{{df.wbAccount.logo}} alt=""> </a>
+                            </td>-->
+                            <td>
+                               <span>{{df.wbAccount.name}}</span> </td>
+                            <td>
+                                <span>{{df.creationDate}}</span>   </td>
+
+
+                            <td>
+                                <a   ng-click="editDraft(df)">
+                                    编辑
+                                </a>
+
+                                <a  ng-click="removeDraft(df.id)">
+                                    删除</i>
+                                </a>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="span12">
+                        <gpower-page conf="drafpageConf"></gpower-page>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--微博审核-->
+        <div class="modal fade" id="wbauditform" role="dialog"
+             aria-labelledby="wbpublshiformLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true"></button>
+                        <h4 class="modal-title" id="wbpublshiformLabel" ng-bind="formName"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-pane active" id="portlet_comments_1">
+                            <div class="general-item-list">
+                                <div class="item">
+                                    <div class="item-head">
+                                        <div class="item-details">
+
+                                          <!--  <img style="float: left" class="item-pic"
+                                                  ng-src=storage/wb/{{publishwb.wbAccount.logo}}>
+-->
+                                                <div  style="float: left">
+                                            <a href="" class="item-name primary-link">{{auditwb.wbAccount.name}}</a>
+                                            <p class="item-label">{{auditwb.sendDate}}</p>
+                                                </div>
+                                        </div>
+                                        <span class="item-status">
+
+                                    </div >
+
+                                    <div style="margin-inside: 10px;" class="item-body">
+                                        <p
+                                                class="item-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{auditwb
+                                        .content}}</p> </div>
+
+                                    <img ng-if="auditwb.imgurl"
+                                         ng-src={{auditwb.thume}} width="200px"
+                                         height="115px" class="img-rounded">
+                                </div> </div>
+
+                            <!-- BEGIN: Comments -->
+
+                            <!-- END: Comments -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="wbpublshiform" role="dialog"
+             aria-labelledby="wbpublshiformLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true"></button>
+                        <h4 class="modal-title" id="wbpublshiformLabel" ng-bind="formName"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-pane active" id="portlet_comments_1">
+                            <div class="general-item-list">
+                                <div class="item">
+                                    <div class="item-head">
+                                        <div class="item-details">
+
+                                          <!--  <img style="float: left" class="item-pic"
+                                                  ng-src=storage/wb/{{publishwb.wbAccount.logo}}>
+-->
+                                                <div  style="float: left">
+                                            <a href="" class="item-name primary-link">{{publishwb.wbAccount.name}}</a>
+                                            <p class="item-label">{{publishwb.sendDate}}</p>
+                                                </div>
+                                        </div>
+                                        <span class="item-status">
+
+                                    </div >
+
+                                    <div style="margin-inside: 10px;" class="item-body">
+                                        <p
+                                                class="item-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{publishwb
+                                        .content}}</p> </div>
+
+                                    <img ng-if="publishwb.imgurl"
+                                         ng-src={{editimageurl}} width="200px"
+                                         height="115px" class="img-rounded">
+                                </div> </div>
+
+                            <!-- BEGIN: Comments -->
+
+                            <!-- END: Comments -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade bs-example-modal-sm" id="fabuModal" tabindex="-1" role="dialog"
+             data-backdrop="static" aria-labelledby="groupUserModal">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content" style="margin-top: 20%;">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true"></button>
+                        <h4 class="modal-title" id="wbpublshiformLabel" >定时发布</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" ng-model="pumessage">
+
+                            <input type="text"
+                                   class="form-control" readonly
+                                   placeholder="发送时间"
+                                   id="publishDate" date-picker
+                                   data-format="yyyy-mm-dd hh:ii"
+                                   min-date="{{initTime | date:'yyyy-MM-dd'}}"
+                                   ng-model="pumessage.publishDate">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="btn btn-primary" ng-click="submitPublish(pumessage)">确定
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+        <div class="modal fade bs-example-modal-sm" id="auditfabuModal" tabindex="-1" role="dialog"
+             data-backdrop="static" aria-labelledby="groupUserModal">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content" style="margin-top: 20%;">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true"></button>
+                        <h4 class="modal-title" id="wbpublshiformLabel" >定时发布</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" ng-model="pumessage">
+
+                            <input type="text"
+                                   class="form-control" readonly
+                                   placeholder="发送时间"
+                                   id="publishDate" date-picker
+                                   data-format="yyyy-mm-dd hh:ii"
+                                   min-date="{{initTime | date:'yyyy-MM-dd'}}"
+                                   ng-model="pumessage.publishDate">
+                        </div>
+
+                    </div>
+
+
+
+
+
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary" ng-click="submitauditPublish(pumessage)">确定
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>   </div>
+            </div>
+        </div>
+
+
+
+        <script>
+
+            function setImg(w, h){
+                var imgList = document.getElementsByTagName('img');
+
+                // var imgList = document.getElementsByName("pic");
+
+                for(var i=0;i<imgList.length;i++){
+
+
+                    if(imgList[i].width>w || imgList[i].height>h){
+
+                        imgList[i].width = w;
+
+                        imgList[i].heigth = h;
+
+                    }
+
+                }
+
+            }
+
+            setImg(70.76,65.49);
+            $(".select2-multiple").select2({
+                placeholder: '请选择发布账号'
+            });
+
+
+            function selectfile() {
+                $("#sf").trigger("click");
+
+
+
+            }
+        </script>

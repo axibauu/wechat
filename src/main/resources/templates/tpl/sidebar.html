@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="page-sidebar navbar-collapse collapse">
+    <ul class="page-sidebar-menu" data-keep-expanded="false"
+        data-auto-scroll="true" data-slide-speed="200"
+        ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+        <li class="start nav-item"><a ui-sref="dashboard"> <i
+                class="icon-home"></i> <span class="title" th:text="#{app.home}"></span>
+        </a>
+        </li>
+
+        </li>
+     <!--  <li class="start nav-item">
+            <a ui-sref="uploadSetting"> <i class="icon-folder"></i><span>文件上传</span></a>
+        </li>-->
+        <li class="start nav-item" >
+            <a ui-sref="accountSetting"> <i class="icon-grid"></i><span>新媒体矩阵</span></a>
+        </li>
+        <li class="start nav-item">
+            <a href="#" class="nav-link nav-toggle"><i class="icon-globe"></i><span
+                    class="arrow">内容发布</span></a>
+            <ul class="sub-menu">
+                <li >
+                    <a ui-sref="wxPublishSetting">
+                        <i class="icon-bubble"></i><span>&nbsp;公众号发布</span></a>
+                </li>
+
+                <li >
+                    <a ui-sref="wbPublishSetting">
+                        <i class="icon-feed"></i><span>&nbsp;微博发布</span></a>
+                </li>
+            </ul>
+        </li>
+      <!--  <li class="start nav-item">
+            <a ui-sref="dataStatistics"> <i class="icon-calculator"></i><span>数据统计</span></a>
+        </li>-->
+        <li class="start nav-item">
+            <a ui-sref="dataStatistics2"> <i class="icon-calculator"></i><span>数据统计</span></a>
+        </li>
+
+        <li class="start nav-item">
+            <a ui-sref="mediumConsultation"> <i class="icon-compass"></i><span>全媒体资讯</span></a>
+        </li>
+        <li class="start nav-item">
+            <a ui-sref="websiteBuilding"> <i class="icon-briefcase"></i><span>微网站建站</span></a>
+        </li>
+        <li class="nav-item">
+        <a href="#" class="nav-link nav-toggle"  shiro:hasPermission="group">
+            <i class="icon-settings"></i> <span class="title"></span> <span
+                class="arrow" th:text="#{app.setting}"></span>
+        </a>
+            <ul class="sub-menu">
+                <li shiro:hasPermission="role">
+                    <a ui-sref="roleSetting"> <i class="icon-user-follow"></i><span th:text="#{app.roleSetting}"></span></a>
+                </li>
+
+                <li shiro:hasPermission="group">
+                    <a ui-sref="userGroupSetting"> <i class="icon-users"></i><span
+                            th:text="#{app.groupSetting}"></span></a>
+                </li>
+                 <li shiro:hasPermission="user">
+                  <a ui-sref="userSetting"> <i class="icon-settings"></i><span th:text="#{app.userSetting}"></span></a>
+              </li>
+
+          </ul>
+      </li>
+      <li class="start nav-item" shiro:hasPermission="role"><a ui-sref="downLogSetting"> <i
+              class="icon-calendar"></i> <span class="title" th:text="#{app.systemLog}"></span>
+      </a>
+  </ul>
+</div>
+</body>
+</html>

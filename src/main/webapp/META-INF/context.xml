@@ -1,0 +1,5 @@
+<!--
+<Context path="/medium">
+    <Valve className="org.keycloak.adapters.tomcat.KeycloakAuthenticatorValve"/>
+</Context>
+-->

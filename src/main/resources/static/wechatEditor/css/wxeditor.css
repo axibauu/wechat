@@ -1,0 +1,471 @@
+ul {
+	padding-left: 0;
+}
+
+ul li {
+	list-style: none;
+}
+
+.nav>li a {
+	color: #3a3332
+}
+
+.nav>li>a {
+	display: block;
+	padding: 10px 20px
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+	filter: alpha(opacity=30);
+	opacity: 0.3
+}
+
+.style-operate-area {
+	position: relative;
+	float: left;
+	min-width: 500px;
+}
+
+.categories {
+	float: left;
+	width: 80px
+}
+.style-preview-container {
+	float: left;
+	/* width: 384px; */
+	width: 100%;
+	/* margin: -1px; */
+	background: #fff;
+	border: 1px solid #d4d4d4;
+	border-radius: 0 0 4px 4px;
+}
+
+.editor-container {
+	/*width: 650px*/
+}
+
+.categories-logo {
+	height: 65px;
+	background: #3a3332;
+	color: #dad9d8;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 65px
+}
+.categories-component,
+.category-template {
+	margin: 0;
+	width: 100%;
+	height: 65px;
+}
+
+.categories-component {
+	background-color: rgba(245, 245, 245, 0.9);
+	color: #dad9d8;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 30px;
+	white-space: nowrap;
+}
+
+.categories-component li {
+	float: left;
+	width: 20%;
+	height: 100%;
+	color: #fff;
+	text-align: center
+}
+
+.categories-component .fa {
+	font-size: 24px;
+	vertical-align: bottom;
+}
+
+.categories-component .active a,
+.categories-component a:hover,
+.categories-component a:focus {
+	color: #ff8124
+}
+
+.categories-component a {
+	display: block;
+	height: 100%;
+	color: #333;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.categories-component li.active,
+.categories-component li:hover {
+	background: #dadada;
+	text-decoration: none
+}
+.category-template {
+	padding: 23px 0 0 10px;
+}
+
+.item {
+	/* width: 380px; */
+	width: 100%;
+	height: 503px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background: RGBA(255, 255, 255, 0.3);
+	margin: 0 2px;
+	font-size: 14px;
+	color: #3a3332
+}
+
+.item img {
+	max-width: 100%
+}
+
+.item li {
+	padding: 10px 15px;
+	cursor: pointer
+}
+
+.item li:hover {
+	background: #f0f0f0
+}
+
+.editorBox {
+	/*width: 500px;*/
+}
+
+.recommend-style-content {
+	max-width: 100% !important;
+}
+
+#edui_fixedlayer {
+	z-index: 100000000 !important;
+}
+
+.modal-backdrop.in {
+	opacity: 0.9;
+}
+
+.alert-warning {
+	background-color: rgba(255, 255, 255, 0.4);
+	border: 0 none;
+	color: #3a3332;
+}
+
+.modal-backdrop {
+	/*z-index: 1000000;*/
+}
+
+.mix {
+	/*display: none;*/
+}
+
+.color-switch {
+	width: 20px;
+	height: 20px;
+	border-radius: 3px;
+	cursor: pointer;
+	float: left;
+	margin: 4px 2px;
+}
+
+.color-switch:hover,
+.color-switch.active {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+	-webkit-box-shadow: inset 1px 1px 1px #5b616d, 0 0 5px #45bcda;
+	-moz-box-shadow: inset 1px 1px 1px #5b616d, 0 0 5px #45bcda;
+	box-shadow: inset 1px 1px 1px #5b616d, 0 0 5px #45bcda;
+}
+
+/* editor iframe */
+.edui-default .edui-editor-toolbarboxouter {
+	background: #fff !important;
+}
+.edui-default .edui-editor-iframeholder {
+	border: 1px solid #d4d4d4;
+	border-top: 0;
+	margin-left: -1px;
+	margin-top: 50px;
+}
+.edui-default .edui-editor {
+	border-radius: 0 0 4px 4px !important;
+}
+
+.category-list .category-title a {
+	display: block;
+	height: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	background: rgba(0,0,0,0.2);
+}
+.category-list .category-title a:hover,
+.category-list .category-title.active a {
+	background: rgba(0,0,0,0.7);
+}
+.recommend-style .btn {
+	display: none;
+}
+
+.recommend-style:hover .btn {
+	display: inline;
+}
+
+.recommend-style {
+	position: relative;
+	background: #FFF;
+	border-bottom: 1px dotted #ddd;
+}
+
+.recommend-style:hover {
+	background: #f0f0f0;
+}
+
+#insert-style-list .editor-component-list>li * {
+	max-width: 100%!important;
+}
+
+#insert-style-list .editor-component-list>li p {
+	clear: both;
+	margin: 0 0;
+	line-height: 1.6;
+}
+
+#insert-style-list .origin {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 20px;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 12px;
+	padding: 2px;
+	background: #ed603a;
+}
+
+#insert-template-list .template-item {
+	margin-top: 20px;
+	position: relative;
+}
+#insert-template-list .template-item .content {
+    cursor: pointer;
+    padding: 0 5px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    box-shadow: 0 0 3px rgb(170, 170, 170);
+}
+#insert-template-list .template-item .tpl-mask {
+    position: absolute;
+    background: rgba(60,60,60,0.5);
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    text-align: center;
+    display: none;
+}
+#insert-template-list .template-item:hover .tpl-mask {
+    display: block !important;
+}
+#insert-template-list .template-item .tpl-mask .fa {
+	font-size: 40px;
+}
+
+
+/* fix Firefox - max-width images not working within fieldset */
+
+fieldset img {
+	width: 100%;
+	max-width: -moz-fit-content;
+	max-width: -webkit-fit-content;
+}
+
+.modal-open .modal {
+	z-index: 10000000;
+}
+
+#WxMsgContent {
+	/* height: 470px; */
+}
+
+@media (max-width: 1400px) {
+	.editor-container,
+	.editorBox {
+		width: 530px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.editor-container,
+	.editorBox {
+		width: 450px;
+	}
+}
+
+@media (max-width: 1130px) {
+	.editor-container,
+	.editorBox {
+		width: 370px;
+	}
+}
+
+.modal-header h3 {
+	margin: 0 10px;
+}
+
+/* color panel */
+.color-panel {
+	width: 120px;
+	position: absolute;
+	top: 70px;
+	right: 15px;
+	height: 320px;
+	text-align: center;
+}
+
+.color-panel>.panel {
+	border: 0 none;
+	background: transparent;
+}
+
+.color-panel .tab-content {
+	position: absolute;
+	right: 32px;
+	padding: 15px 0px !important;
+	width: 120px;
+	background: rgba(58, 51, 50, 0.5);
+}
+
+.color-panel .nav-tabs {
+	width: 32px;
+	position: absolute;
+	right: 0px;
+}
+
+.color-panel .nav-tabs>li {
+	width: 32px;
+	background: rgba(58, 51, 50, 0.8);
+	border: 0 none;
+	color: #FFF;
+	font-size: 16px;
+}
+
+.color-panel .nav-tabs>li>a {
+	padding: 5px;
+	color: #efefef;
+	border: 0 none;
+}
+
+.color-panel .nav-tabs>li>a:hover {
+	background: transparent;
+	color: #FFF;
+}
+
+.color-panel .nav-tabs>li.active>a,
+.color-panel .nav-tabs>li.active>a:hover,
+.color-panel .nav-tabs>li.active>a:focus {
+	background-color: #000;
+	color: #FFF;
+	border: 0 none;
+}
+
+.edui-default .edui-colorpicker-nocolor {
+	height: 20px !important;
+}
+
+.edui-default .edui-popup {
+	background: none !important;
+}
+.edui-default .edui-bubble .edui-popup-content {
+    line-height: 24px !important;
+    padding: 8px !important;
+    background: rgba(103,91,84,.9) !important;
+    border-radius: 0 !important;
+    border: 0 none !important;
+    color: #FFF !important;
+}
+.edui-default span.edui-clickable, .edui-default a.edui-clickable {
+    color: #fff !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+}
+
+/* dialogs */
+.edui-default .edui-dialog-titlebar {
+    line-height: 52px;
+    padding: 0 10px;
+    color: #222;
+    height: 52px !important;
+    background-color: #f4f5f9 !important;
+    background-image: -moz-linear-gradient(top,#f4f5f9 0,#f4f5f9 100%) !important;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#f4f5f9),to(#f4f5f9)) !important;
+    background-image: -webkit-linear-gradient(top,#f4f5f9 0,#f4f5f9 100%) !important;
+    background-image: -o-linear-gradient(top,#f4f5f9 0,#f4f5f9 100%) !important;
+    background-image: linear-gradient(to bottom,#f4f5f9 0,#f4f5f9 100%) !important;
+    border-bottom: 1px solid #e7e7eb !important;
+}
+.edui-default .edui-dialog-shadow {
+	border-radius: 0 !important;
+}
+.edui-default .edui-dialog-closebutton .edui-button-body {
+    margin-top: 15px;
+    margin-right: 5px;
+}
+.edui-default .edui-dialog-caption {
+    font-size: 14px !important;
+    line-height: 52px !important;
+}
+.edui-default .edui-for-imagestyle .edui-dialog-content {
+    width: 990px;
+    height: 562px;
+    overflow: hidden;
+}
+
+/* edui popup 
+.otf-poptools {
+	width: 200px;
+}
+
+.otf-poptools span {
+	margin: 0 5px;
+	cursor: pointer;
+}
+*/
+.slider {
+    height: 16px!important;
+    width: auto;
+    position: relative;
+    background-color: #FFF;
+    margin-bottom: 5px
+}
+
+.slider .complete {
+    height: 100%;
+    width: auto;
+    color: #333;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+    background-color: #ccc;
+    z-index: 2
+}
+
+.slider .marker {
+    height: 16px;
+    width: 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #999;
+    z-index: 3
+}

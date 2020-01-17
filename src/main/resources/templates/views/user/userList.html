@@ -1,0 +1,373 @@
+<!-- BEGIN PAGE HEADER-->
+<div>
+    <style>
+        td
+        {
+            text-align:center;
+        }
+        th
+        {
+            text-align:center;
+        }
+    </style>
+    <div class="page-bar" style="background-color: #1111">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="#">设置管理</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+
+                <a href="#">用户管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+
+                        <span class="caption-subject font-green bold uppercase"> 用户管理</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <span>
+                                        <button id="sample_editable_1_new" class="btn sbold green" ng-click="newUser()"> 新增
+                                        <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-group form-inline form-margin ">
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <input ng-model="QueryCriteria.userName" placeholder="用户名"
+                                                   class="form-control ng-pristine ng-untouched ng-valid ng-empty" type="text">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input ng-model="QueryCriteria.userFullName" placeholder="姓名"
+                                                   class="form-control ng-pristine ng-untouched ng-valid ng-empty" type="text">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="input-group date">
+                                                <input class="form-control form_datetime " size="16" type="text"
+                                                       id="startCreateTime" date-picker
+                                                       ng-model="QueryCriteria.startCreateTime" placeholder="开始日期"> <span
+                                                    class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                            </div>  </div>
+                                        <div class="col-md-2">
+                                            <div class="input-group date ">
+                                                <input class="form-control form_datetime" size="16" type="text"
+                                                       id="endCreateTime" date-picker
+                                                       ng-model="QueryCriteria.endCreateTime" placeholder="结束日期"> <span
+                                                    class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                            </div> </div>
+
+                                        <button class="btn blue " ng-click="searchUserList()">查询</button>
+                                    </div> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover table-checkable sortField-column"
+                           id="sample_1">
+                        <thead>
+                        <tr>
+                            <th>
+                                <label>
+                                    <span>#</span>
+                                </label>
+                            </th>
+                            <th>用户名</th>
+                            <th>姓名</th>
+                            <th>注册时间</th>
+                            <th>角色</th>
+                            <th>操作</th>
+                            <th>账号分配</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="odd gradeX" ng-repeat="user in userList">
+                            <td>
+
+                                <label>
+                                    <span>{{$index+1}}</span>
+                                </label>
+                            </td>
+                            <td>{{user.name}}</td>
+                            <th>{{user.fullName}}</th>
+                            <td>{{user.createTime}}</td>
+
+                            <td>
+                                {{getuserrole(user.role)}}
+
+                            </td>
+                            <td>
+                                <a href="" ng-click="editUser(user)">编辑</a>
+                                <a href="" ng-click="deleteUser(user)">删除</a>
+                            </td>
+                            <td>
+                                <a href="" ng-click="weixinshouquan(user)">微信</a>
+                                <a href="" ng-click="weiboshouquan(user)">微博</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="span12">
+                        <gpower-page conf="pageConf"></gpower-page>
+                    </div>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+        </div>
+    </div>
+    <div class="modal fade" id="userModal" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="userModalLabel" ng-bind="formName"></h4>
+                </div>
+                <div class="modal-body">
+                    <form name="userForm" id="userForm" class="form-horizontal" novalidate="novalidate">
+                        <div class="modal-body">
+                            <div class="form-group  margin-top-20">
+                                <label class="control-label col-md-3">用户名
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-6">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" ng-disabled="cmd==='update'" name="name" ng-model="user.name"/>
+                                        <small><span style="color: red;" ng-show="userName.flag"> 用户名已存在</span></small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">姓名
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-6">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" id="fullName" name="fullName" ng-model="user.fullName"/></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">角色
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-6">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+
+
+                                        <select  id="role" name="role"  class="form-control" ng-model="user.role" ng-init="user.role='0'"  >
+                                            <!-- <option ng-repeat="re in roles"   ng-selected="re.id==user.role" value="{{re.id}}">{{re.name}}</option>-->
+                                            <!--  <option value="156b070885f146f2b3afc084ea0cff67"  selected>普通用户</option>-->
+
+                                            <option    value="156b070885f146f2b3afc084ea0cff67" >普通用户</option>
+                                            <option value="5b6b6f10dd2042ffaa78da84711f3230"   shiro:hasPermission="role">院级管理员</option>
+                                            <option   value="9db925d719a14be496177863754ba4f8"   shiro:hasPermission="role">实施用户</option>
+                                        </select>
+                                    </div>
+                                </div>   </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">密码
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-6">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="password" class="form-control" id="password" name="password" ng-model="user.password"/></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">确认密码
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-6">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="password" class="form-control" name="confirmPassword" ng-model="user.repassword"/></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary blue"
+                            ng-disabled="userName.flag"
+                            ng-click="submitUserForm()">确定
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--weixin-->
+    <div class="modal fade modal-small" id="weixingroupModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="groupUserModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="margin-top: 20%;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{groupName}}-包含微信</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="User_group_list" >
+                                <h2>所有微信</h2>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  placeholder="请输入微信名" name="name" ng-model="allwxName">
+                                </div>
+                                <div class="UserGrupList row pre-scrollable">
+
+                                    <ul class="user_list">
+                                        <li ng-repeat="sqwx in wxall | filter: { tempstatus :0,name: allwxName }" title="点击添加"><a href="" ng-click="selectsqwx(sqwx)"><p ng-if="sqwx.name!=null && sqwx.name!=''">{{sqwx.name}}</p><p ng-if="sqwx.name==null || sqwx.name==''">{{sqwx.name}}</p></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2" >
+
+                            <br><br><br><br><br><br><br><br><br><br><br>
+                            <div class="btnList" >
+                                <a href="" ng-click="addAllWx(wxall)"><img
+                                        src="assets/img/order08.png"></a>
+                                <a href="" ng-click="removeAllWx(wxall)"><img src="assets/img/order09.png"></a>
+
+                            </div>
+
+                        </div>
+                        <div class="col-xs-5">
+                            <div class="User_group_list">
+                                <h2>拥有微信</h2>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  placeholder="请输入微信" name="name" ng-model="ownwxName">
+                                </div>
+                                <div class="UserGrupList row pre-scrollable">
+                                    <ul class="user_list">
+                                        <li ng-repeat="sqwx in wxall  | filter: {tempstatus: 1,name:ownwxName}" title="点击删除"><a href=""  ng-click="unSelectwx(sqwx)"><p ng-if="sqwx.name!=null && sqwx.name!=''">{{sqwx.name}}</p><p ng-if="sqwx.name==null ||sqwx.name==''">{{sqwx.name}}</p></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary" ng-click="updateShouquanWx()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--weibo-->
+    <div class="modal fade modal-small" id="weibogroupModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="groupUserModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="margin-top: 20%;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{groupName}}-包含微博</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="User_group_list" >
+                                <h2>所有微博</h2>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  placeholder="请输入微博名" name="name" ng-model="allwbName">
+                                </div>
+                                <div class="UserGrupList row pre-scrollable">
+
+                                    <ul class="user_list">
+                                        <li ng-repeat="sqwb in wball | filter: { tempstatus :0,name: allwbName }" title="点击添加"><a href="" ng-click="selectsqwb(sqwb)"><p ng-if="sqwb.name!=null && sqwb.name!=''">{{sqwb.name}}</p><p ng-if="sqwb.name==null || sqwb.name==''">{{sqwb.name}}</p></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2" >
+
+                            <br><br><br><br><br><br><br><br><br><br><br>
+                            <div class="btnList" >
+                                <a href="" ng-click="addAllWb(wball)"><img
+                                        src="assets/img/order08.png"></a>
+                                <a href="" ng-click="removeAllWb(wball)"><img src="assets/img/order09.png"></a>
+
+                            </div>
+
+                        </div>
+                        <div class="col-xs-5">
+                            <div class="User_group_list">
+                                <h2>拥有微博</h2>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  placeholder="请输入微博" name="name" ng-model="ownwbName">
+                                </div>
+                                <div class="UserGrupList row pre-scrollable">
+                                    <ul class="user_list">
+                                        <li ng-repeat="sqwb in wball  | filter: {tempstatus: 1,name:ownwbName}" title="点击删除"><a href=""  ng-click="unSelectwb(sqwb)"><p ng-if="sqwb.name!=null && sqwb.name!=''">{{sqwb.name}}</p><p ng-if="sqwb.name==null ||sqwb.name==''">{{sqwb.name}}</p></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary" ng-click="updateShouquanWb()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="userRoleModal" role="dialog" aria-labelledby="userRoleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="userRoleModalLabel">用户授权-{{grantUser.name}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row-fluid">
+                        <a href="" class="icon-btn span2" ng-repeat="role in roleList" ng-click="clickRole(role)">
+                            <div ng-bind="role.name"></div>
+                            <span class="badge badge-success" ng-show="role.checked"><i
+                                    class="glyphicon glyphicon-ok"></i></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary blue" ng-click="grantUserRole()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

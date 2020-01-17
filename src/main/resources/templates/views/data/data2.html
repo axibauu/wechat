@@ -1,0 +1,648 @@
+<div>
+    <style>
+        td {
+            text-align: center;
+        }
+
+        th {
+            text-align: center;
+        }
+    </style>
+
+
+        <script type="text/javascript">
+            var day = new Date();
+            var formatDate = function (date) {
+                var y = day.getFullYear();
+                var m = day.getMonth() + 1;
+                m = m < 10 ? '0' + m : m;//这是判断月份是否小于10  如果小于在月份前面添加0  成05
+                var d = day.getDate();
+                d = d < 10 ? ('0' + d) : d;  //判断天数 也是一样的
+                return y + '-' + m + '-' + d;  这里取到的格式是2018-06-01
+            };
+            var today = formatDate(Date());
+            function GetDateStr(AddDayCount) {
+                var dd = new Date();
+                dd.setDate(dd.getDate() + AddDayCount); //获取AddDayCount天后的日期
+                var y = dd.getFullYear();
+                var m = dd.getMonth() + 1; //获取当前月份的日期
+                m = m < 10 ? '0' + m : m;
+                var d = dd.getDate();
+                d = d < 10 ? ('0' + d) : d;
+                return y + "-" + m + "-" + d;
+            }
+            var date1 = GetDateStr(-7);
+            var date2 = GetDateStr(-6);
+            var date3 = GetDateStr(-5);
+            var date4 = GetDateStr(-4);
+            var date5 = GetDateStr(-3);
+            var date6 = GetDateStr(-2);
+            var date7 = GetDateStr(-1);
+            console.log("date1",date1);
+            $("#data1").html('<span>'+date1+'</span>');
+            $("#data2").html('<span>'+date2+'</span>');
+            $("#data3").html('<span>'+date3+'</span>');
+            $("#data4").html('<span>'+date4+'</span>');
+            $("#data5").html('<span>'+date4+'</span>');
+            $("#data6").html('<span>'+date6+'</span>');
+            $("#data7").html('<span>'+date7+'</span>');
+            $("#d1").html('<span>'+date7+'</span>');
+            $("#d2").html('<span>'+date6+'</span>');
+            $("#d3").html('<span>'+date5+'</span>');
+            $("#d4").html('<span>'+date4+'</span>');
+            $("#d5").html('<span>'+date3+'</span>');
+
+
+         /*   $("#data1").html(data1);*/
+/*document.getElementById("data1").innerHTML=date1;*/
+/*document.getElementById("date2").innerHTML="22";*/
+/*document.getElementById("date3").innerHTML=date3;
+document.getElementById("date4").innerHTML=date4;
+document.getElementById("date5").innerHTML=date5;
+document.getElementById("date6").innerHTML=date6;
+document.getElementById("date7").innerHTML=date7;*/
+
+
+          var myChart = echarts.init(document.getElementById('chart'));
+
+            var option = {
+                title:{
+                    text:'微信阅读次数'
+                },
+                tooltip:{},
+                legend:{
+                    data:['WECHAT']
+                },
+                xAxis:{
+                    data:[date1,date2,date3,date4,date5,date6,date7],
+                    splitLine:{show: false},//去除网格线
+                },
+                yAxis:{
+                    splitLine:{show: false},//去除网格线
+                },
+                grid:{	 borderWidth:0,
+
+                    borderColor:'#e3b'
+                },
+                series:[{
+                    name:'阅读次数',
+                    type:'line',
+                    itemStyle : {
+                        normal : {
+                            color:'#00FF00',
+                            lineStyle:{
+                                color:'#00FF00'
+                            }
+                        }
+                    },
+                    data:[30,43,56,55,55,33,20]
+                }]
+            };
+            //初始化echarts实例
+
+
+            //使用制定的配置项和数据显示图表
+            myChart.setOption(option);
+            var myChart1 = echarts.init(document.getElementById('chart1'));
+
+            var option1 = {
+                title:{
+                    text:'粉丝曲线图'
+                },
+                tooltip:{},
+                legend:{
+                    data:['FANS']
+                },
+                xAxis:{
+                    data:[date1,date2,date3,date4,date5,date6,date7],
+                    splitLine:{show: false},//去除网格线
+                },
+                yAxis:{
+                    splitLine:{show: false},//去除网格线
+                },
+                grid:{	 borderWidth:0,
+
+                    borderColor:'#e3b'
+                },
+                series:[{
+                    name:'阅读次数',
+                    type:'line',
+                    itemStyle : {
+                        normal : {
+                            color:'#00FF00',
+                            lineStyle:{
+                                color:'#00FF00'
+                            }
+                        }
+                    },
+                    data:[50,120,140,170,215,230,249]
+                }]
+            };
+            //初始化echarts实例
+
+
+            //使用制定的配置项和数据显示图表
+            myChart1.setOption(option1);
+
+    </script>
+    <div class="page-bar" style="background-color: #1111">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="#">数据统计</a>
+
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+
+                        <span class="caption-subject font-green bold uppercase"> 数据统计</span>
+                    </div>
+                </div>
+                <div class="portlet-body" >
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="portlet-title tabbable-line">
+                                    <ul class="nav nav-tabs" style="float: left">
+                                        <li class="active">
+                                            <a data-toggle="tab" ng-click="viewMyData()">我的数据</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" ng-click="viewFans()">我的粉丝</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" ng-click="viewArticle()">我的文章</a>
+                                        </li>
+                                       <!-- <li>
+                                            <a data-toggle="tab" ng-click="haspublishz()">矩阵业绩</a>
+                                        </li>-->
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div ng-show="viewweixin" >
+                            <div class="row widget-row">
+                                <div class="col-md-3">
+                                    <!-- BEGIN WIDGET THUMB -->
+                                    <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                        <h4 class="widget-thumb-heading" align="center"><i
+                                                class="glyphicon glyphicon-file">&nbsp;发文数</i></h4>
+                                        <div class="widget-thumb-wrap">
+
+                                            <!--<i class="widget-thumb-icon bg-green icon-bulb"></i>-->
+
+                                            <div class="widget-thumb-body" align="center">
+
+                                                <span class="widget-thumb-subtitle">  </span>
+                                                <span class="widget-thumb-body-stat"
+                                                      data-counter="counterup"
+                                                      data-value="7,644">  56</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- END WIDGET THUMB -->
+                                <div class="col-md-3">
+                                    <!-- BEGIN WIDGET THUMB -->
+                                    <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                        <h4 class="widget-thumb-heading" align="center"><i
+                                                class="glyphicon glyphicon-eye-open">&nbsp;阅读数</i></h4>
+                                        <div class="widget-thumb-wrap">
+
+                                            <div class="widget-thumb-body" align="center">
+                                                <span class="widget-thumb-subtitle"></span>
+                                                <span class="widget-thumb-body-stat"
+                                                      data-counter="counterup"
+                                                      data-value="1,293">343</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END WIDGET THUMB -->
+                                </div>
+                                <div class="col-md-3">
+                                    <!-- BEGIN WIDGET THUMB -->
+                                    <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                        <h4 class="widget-thumb-heading" align="center"><i
+                                                class="glyphicon glyphicon-star">&nbsp;收藏数</i></h4>
+                                        <div class="widget-thumb-wrap">
+
+                                            <div class="widget-thumb-body" align="center">
+                                                <span class="widget-thumb-subtitle"></span>
+                                                <span class="widget-thumb-body-stat"
+                                                      data-counter="counterup"
+                                                      data-value="815">34</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END WIDGET THUMB -->
+                                </div>
+                                <div class="col-md-3">
+                                    <!-- BEGIN WIDGET THUMB -->
+                                    <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                        <h4 class="widget-thumb-heading"  align="center"><i
+                                                class="glyphicon glyphicon-share">&nbsp;转发数</i></h4>
+                                        <div class="widget-thumb-wrap">
+
+                                            <div class="widget-thumb-body" align="center">
+                                                <span class="widget-thumb-subtitle"></span>
+                                                <span class="widget-thumb-body-stat"
+                                                      data-counter="counterup"
+                                                      data-value="5,071">12</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row widget-row " >
+                                <div class=" col-lg-12 col-md-12 col-xs-12 col-sm-12" >
+                                    <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                <div class="portlet light ">
+                                    <div class="portlet-title">
+                                        <div class="caption ">
+                                            <h2
+                                                    class="caption-subject font-dark bold uppercase" ><font style="color:green;">阅读趋势图</font></h2>
+                                            <span class="caption-helper"></span>
+                                        </div>
+
+
+                                        <div id="chart" style="width:100%;height:400px;"></div>
+                                    </div>
+
+                                </div>
+                            </div>    </div>  </div>
+                            <div class="row widget-row " >
+                                <div class=" col-lg-12 col-md-12 col-xs-12 col-sm-12" >
+                                    <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                        <div class="portlet light ">
+
+
+                                                    <span
+                                                            class="caption-subject font-dark bold uppercase" ><font style="color:deepskyblue;">数据列表</font></span>
+                                                    <span class="caption-helper"></span>
+                                            <br> <br>
+                          <table
+                                   class="table table-striped table-bordered table-hover table-checkable sortField-column"
+                                   align="center">
+                                <thead>
+                                <tr>
+
+                                    <th align="center">文章数目</th>
+                                    <th align="center">总阅读数</th>
+                                    <th align="center">最高阅读数</th>
+                                    <th align="center">平均阅读数</th>
+                                    <th align="center">收藏数</th>
+                                    <th align="center">转发数</th>
+                                    <th align="center">日期</th>
+                                </tr>
+                                </thead>
+                                <tbody >
+                                <tr class="odd gradeX">
+                                    <td>2</td>
+                                    <td>345</td>
+                                    <td>72</td>
+                                    <td>41</td>
+                                    <td>5</td>
+                                    <td>7</td>
+                                    <td id="d1"></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>1</td>
+                                    <td>305</td>
+                                    <td>54</td>
+                                    <td>36</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td id="d2"></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>2</td>
+                                    <td>360</td>
+                                    <td>72</td>
+                                    <td>35</td>
+                                    <td>6</td>
+                                    <td>2</td>
+                                    <td  id="d3"></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>4</td>
+                                    <td>312</td>
+                                    <td>41</td>
+                                    <td>41</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td id="d4"></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>1</td>
+                                    <td>315</td>
+                                    <td>33</td>
+                                    <td>23</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td id="d5"></td>
+                                </tr>
+                            <!--    <tr class="odd gradeX"
+                                    ng-repeat="detail in account.details track by $index">
+                                    <td>
+                                        <label>
+                                            <span>{{$index+1}}</span>
+                                        </label>
+                                    </td>
+                                    <td>{{account.title}}</td>
+                                    <td>
+                                        <a ng-href="{{account.url}}">阅读入口</a>
+                                    </td>
+                                    <td >
+                                        {{detail.statdate}}
+                                        &lt;!&ndash; {{account.details[6].statdate}}&ndash;&gt;</td>
+
+
+                                    <td>{{detail.oripagereadcount}}</td>&lt;!&ndash;原文次数&ndash;&gt;
+                                    <td>{{detail.oripagereaduser}}</td>&lt;!&ndash;原文次数&ndash;&gt;
+                                    <td>{{detail.intpagereadcount}}</td>&lt;!&ndash;阅读次数&ndash;&gt;
+                                    <td>{{detail.intpagereaduser}}</td>
+                                    <td>{{detail.addtofavcount}}</td>
+
+                                    <td>{{detail.sharecount}}</td>
+                                    <td>
+                                        <span ng-if=detail.share_scene==null>无</span>
+                                        <span ng-if=detail.share_scene==1>好友转发</span>
+                                        <span ng-if=detail.share_scene==2>朋友圈</span>
+                                        <span ng-if=detail.share_scene==3>腾讯微博</span>
+                                        <span ng-if=detail.share_scene==244>其他</span>
+                                    </td>
+                                </tbody>-->
+                            </table>
+                            </div> </div> </div></div>
+                                </div>
+                            <div ng-show="viewfans">
+                                        <div class="row widget-row">
+                                            <div class="col-md-3">
+                                                <!-- BEGIN WIDGET THUMB -->
+                                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                                    <h4 class="widget-thumb-heading"
+                                                        align="center"><i
+                                                            class="glyphicon glyphicon-user">
+                                                        &nbsp;粉丝数</i></h4>
+                                                    <div class="widget-thumb-wrap">
+
+
+                                                        <div class="widget-thumb-body"
+                                                             align="center">
+                                                            <span class="widget-thumb-subtitle"></span>
+                                                            <span class="widget-thumb-body-stat"
+                                                                  data-counter="counterup"
+                                                                  data-value="7,644">245</span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!-- END WIDGET THUMB -->
+                                            <div class="col-md-3">
+                                                <!-- BEGIN WIDGET THUMB -->
+                                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                                    <h4 class="widget-thumb-heading" align="center">
+                                                        <i
+                                                            class="glyphicon glyphicon-info-sign">&nbsp;评论数</i></h4>
+                                                    <div class="widget-thumb-wrap">
+
+                                                        <div class="widget-thumb-body"
+                                                             align="center">
+                                                            <span class="widget-thumb-subtitle"></span>
+                                                            <span class="widget-thumb-body-stat"
+                                                                  data-counter="counterup"
+                                                                  data-value="1,293">128</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END WIDGET THUMB -->
+                                            </div>
+                                            <div class="col-md-3">
+                                                <!-- BEGIN WIDGET THUMB -->
+                                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                                    <h4 class="widget-thumb-heading"
+                                                        align="center"><i
+                                                            class="glyphicon glyphicon-user">&nbsp;
+                                                        男粉丝</i></h4>
+                                                    <div class="widget-thumb-wrap">
+
+                                                        <div class="widget-thumb-body"
+                                                             align="center">
+                                                            <span class="widget-thumb-subtitle"></span>
+                                                            <span class="widget-thumb-body-stat"
+                                                                  data-counter="counterup"
+                                                                  data-value="815">81</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END WIDGET THUMB -->
+                                            </div>
+                                            <div class="col-md-3">
+                                                <!-- BEGIN WIDGET THUMB -->
+                                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                                    <h4 class="widget-thumb-heading" align="center">
+                                                        <i
+                                                            class="glyphicon glyphicon-user">&nbsp;
+                                                        女粉丝数</i></h4>
+                                                    <div class="widget-thumb-wrap">
+
+                                                        <div class="widget-thumb-body"
+                                                             align="center">
+                                                            <span class="widget-thumb-subtitle"></span>
+                                                            <span class="widget-thumb-body-stat"
+                                                                  data-counter="counterup"
+                                                                  data-value="5,071">48</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row widget-row " >
+                                            <div class=" col-lg-12 col-md-12 col-xs-12 col-sm-12" >
+                                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                                    <div class="portlet light ">
+                                                        <div class="portlet-title">
+                                                            <div class="caption ">
+                                                                <h2
+                                                                        class="caption-subject font-dark bold uppercase" ><font style="color:green;">粉丝涨势图</font></h2>
+                                                                <span class="caption-helper"></span>
+                                                            </div>
+
+
+                                                            <div id="chart1"
+                                                                 style="width:100%;height:400px;"></div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>    </div>  </div>
+                                        <div class="row widget-row " >
+                                            <div class=" col-lg-12 col-md-12 col-xs-12 col-sm-12" >
+                                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                                    <div class="portlet light ">
+
+
+                                                    <span
+                                                            class="caption-subject font-dark bold uppercase" ><font style="color:deepskyblue;">粉丝数据</font></span>
+                                                        <span class="caption-helper"></span>
+                                                        <br> <br>
+                                                        <table
+                                                                class="table table-striped table-bordered table-hover table-checkable sortField-column"
+                                                                align="center">
+                                                            <thead>
+                                                            <tr>
+
+                                                                <th align="center">粉丝总量</th>
+                                                                <th align="center">新增粉丝</th>
+                                                                <th align="center">男女比例</th>
+                                                                <th align="center">粉丝互动消息数</th>
+                                                                <th align="center">日期</th>
+
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody >
+                                                            <tr class="odd gradeX">
+                                                                <td>50</td>
+                                                                <td>0</td>
+                                                                <td>2：1</td>
+                                                                <td>10</td>
+                                                                <td  id="data1"></td>
+
+                                                            </tr>
+                                                            <tr class="odd gradeX">
+                                                                <td>120</td>
+                                                                <td>70</td>
+                                                                <td>2：1</td>
+                                                                <td>30</td>
+                                                                <td id="data2">3</td>
+
+                                                            </tr>
+                                                            <tr class="odd gradeX">
+                                                                <td>140</td>
+                                                                <td>20</td>
+                                                                <td>2：1</td>
+                                                                <td>35</td>
+
+                                                                <td id="data3"></td>
+                                                            </tr>
+                                                            <tr class="odd gradeX">
+                                                                <td>170</td>
+                                                                <td>30</td>
+                                                                <td>2：1</td>
+                                                                <td>19</td>
+
+                                                                <td id="data4"></td>
+                                                            </tr>
+                                                            <tr class="odd gradeX">
+                                                                <td>215</td>
+                                                                <td>45</td>
+                                                                <td>2：1</td>
+                                                                <td>14</td>
+                                                                <td id="data5"></td>
+
+                                                            </tr>
+                                                            <tr class="odd gradeX">
+                                                                <td>230</td>
+                                                                <td>15</td>
+                                                                <td>2：1</td>
+                                                                <td>13</td>
+                                                                <td id="data6"></td>
+
+                                                            </tr>
+                                                            <tr class="odd gradeX">
+                                                                <td>245</td>
+                                                                <td>15</td>
+                                                                <td>2：1</td>
+                                                                <td>8</td>
+                                                                <td id="data7"></td>
+
+                                                            </tr>
+
+                                                        </table>
+                                                    </div> </div> </div></div>
+                                    </div>
+                            <div ng-show="viewarticle">
+                                        <div class="row widget-row " >
+                                            <div class=" col-lg-12 col-md-12 col-xs-12 col-sm-12" >
+                                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                                    <div class="portlet light ">
+
+
+                                                    <span
+                                                            class="caption-subject font-dark bold uppercase" ><font style="color:deepskyblue;">文章数据</font></span>
+                                                        <span class="caption-helper"></span>
+                                                        <br> <br>
+                                                        <table
+                                                               class="table table-striped table-bordered table-hover table-checkable sortField-column"
+                                                               align="center">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>
+                                                                    <label>
+                                                                        <span>#</span>
+                                                                    </label>
+                                                                </th>
+                                                                <th align="center">文章标题</th>
+                                                                <th align="center">阅读入口</th>
+                                                                <th align="center">日期</th>
+                                                                <th align="center">原文阅读次数</th>
+                                                                <th align="center">原文阅读人数</th>
+                                                                <th align="center">图文阅读次数</th>
+                                                                <th align="center">图文阅读人数</th>
+                                                                <th align="center">收藏次数</th>
+                                                                <th align="center">分享次数</th>
+                                                                <th align="center">分享场景</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody ng-repeat="account in wbaccountList">
+                                                            <tr class="odd gradeX"
+                                                                ng-repeat="detail in account.details track by $index">
+                                                                <td>
+                                                                    <label>
+                                                                        <span>{{$index+1}}</span>
+                                                                    </label>
+                                                                </td>
+                                                                <td>{{account.title}}</td>
+                                                                <td>
+                                                                    <a ng-href="{{account.url}}">阅读入口</a>
+                                                                </td>
+                                                                <td >
+                                                                    {{detail.statdate}}
+                                                                    <!-- {{account.details[6].statdate}}--></td>
+
+
+                                                                <td>{{detail.oripagereadcount}}</td><!--原文次数-->
+                                                                <td>{{detail.oripagereaduser}}</td><!--原文次数-->
+                                                                <td>{{detail.intpagereadcount}}</td><!--阅读次数-->
+                                                                <td>{{detail.intpagereaduser}}</td>
+                                                                <td>{{detail.addtofavcount}}</td>
+
+                                                                <td>{{detail.sharecount}}</td>
+                                                                <td>
+                                                                    <span ng-if=detail.share_scene==null>无</span>
+                                                                    <span ng-if=detail.share_scene==1>好友转发</span>
+                                                                    <span ng-if=detail.share_scene==2>朋友圈</span>
+                                                                    <span ng-if=detail.share_scene==3>腾讯微博</span>
+                                                                    <span ng-if=detail.share_scene==244>其他</span>
+                                                                </td>
+                                                            </tbody>
+                                                        </table>
+                                                    </div> </div> </div></div>
+                                    </div>
+                        </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    </div>

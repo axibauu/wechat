@@ -1,0 +1,517 @@
+<style>
+
+    .edui-button.edui-for-135editor .edui-button-wrap .edui-button-body .edui-icon{
+
+        background-image: url("http://static.135editor.com/img/icons/editor-135-icon.png") !important;
+
+        background-size: 85%;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
+
+    }
+    .img-responsive{
+        width:100%;
+        height:65px;
+    }
+    td
+    {
+        valign="middle";
+        text-align:center;
+    }
+    th
+    {
+        text-align:center;
+    }
+    .sub{margin-top: 30px;}
+</style>
+<div>
+    <div class="page-bar" style="background-color: #1111">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="#">发布平台</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">公众号管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title tabbable-line">
+                    <ul class="nav nav-tabs" style="float: left">
+                        <li class="active">
+                            <a data-toggle="tab" ng-click="viewArticlePublish()">草稿</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" ng-click="management()">审核管理</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" ng-click="haspublishz()">已发文章</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="portlet-body">
+                    <div ng-show="articlePublish">
+                        <div class="table-toolbar">
+                            <div class="row">
+                            <div class="col-md-6">
+                                <div class="inbox-content">
+                                    <div class="inbox-form-group" style="margin-top: 10px;">
+                                        <label class="control-label">发布账号:</label>
+                                        <div class="controls">
+                                            <select id="multiple"
+                                                    class="form-control select2-multiple" multiple
+                                                    ng-model="wxPublish.pubAccount"
+                                                    ng-click="selectPubAccountChange()">
+                                                <option ng-repeat="account in pubaccountlist"
+                                                        value="{{account.id}}">{{account.name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div> </div>
+                                <br> <br>
+                            </div>
+                                <div class="col-md-3">
+                                    <div class="inbox-content">
+                                        <div class="btn-group dropdown open">
+
+                                        <div class="inbox-form-group" style="margin-top: 10px;">
+                                            <label class="control-label">发布选项</label>
+                                            <div class="controls">
+                                                <button type="button" class="btn btn-default"
+                                                   value=""ng-click="publishArticleImg()">新建图文
+
+                                                <button type="button" class="btn btn-default dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="true">
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu"
+                                                >
+                                                    <li>
+                                                        <a    ng-click="publishtext()"   > 文本 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a  ng-click="publishimage()" >图片</a>
+                                                    </li>
+                                                   <!-- <li>
+                                                        <a   ng-click="publishArticleImg()" >图文</a>
+                                                    </li>-->
+                                                    <li>
+                                                        <a>从cms导入</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                </div> </div></div>
+                                <div class="col-md-3">
+                                    <div class="inbox-content">
+                                        <div class="btn-group dropdown open">
+
+                                            <div class="inbox-form-group" style="margin-top: 10px;">
+                                                <label class="control-label">搜索草稿</label>
+                                                <div  class="input-group input-group-md">
+                                            <input type="text" class="form-control" ng-model="QueryCriteria.title"
+                                                   placeholder="微信标题">
+                                            <span class="input-group-btn">
+                                                            <button class="btn default"
+                                                                    ng-click="findDraftList()"
+                                                                    type="button">搜索</button>
+                                                        </span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-12">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <div class="btn-group dropdown open">
+
+                                            </div>
+                                        </div>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            </div>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr role="row" class="heading">
+                                <th width="8%"> #</th>
+                                <!--<th width="8%"> 微信头像</th>-->
+                                <th width="15%"> 微信公众号 </th>
+                                <th width="25%"> 时间 </th>
+                                <th width="8%"> 类型 </th>
+                                <th width="25%"> 标题 </th>
+                                <th width="18%"> 操作 </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr  ng-repeat="draft in draftlist ">
+                                <td><span>{{$index+1}}</span></td>
+                                <!--<td>
+                                    <a ng-href="storage/wx/{{draft.wxAccount.logo}}"
+                                       class="fancybox-button" data-rel="fancybox-button">
+                                        <img class="img-responsive"  ng-src="storage/wx/{{draft.wxAccount.logo}}" alt=""> </a>
+                                </td>-->
+                                <td>
+                                    <span>{{getWxAccount((draft.wxAccountID))}}</span>
+                                <td>
+                                <span>{{draft.createDate}}</span>
+                                <span>{{draft.dateValue}}</span>
+                                </td>
+                                <td>
+                                    <span  ng-if="draft.type==1">文本</span>
+                                    <span ng-if="draft.type==2">图片</span>
+                                    <span  ng-if="draft.type==3">图文</span>
+                                </td>
+                                <td>
+
+                                    <div >
+                                        <span ng-if="draft.type==1" >{{draft.text.title}}</span>
+                                        <span ng-if="draft.type==2">
+                                            {{draft.image.imagetitle}}</span>
+                                        <span ng-if="draft.type==3">{{draft.newsList[0].title}}</span>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <a ng-click="editdraftArticle(draft.id)">编辑</a>
+                                    <a ng-click="removewxdraftArticle(draft.id)">删除</a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="span12">
+                            <gpower-page conf="drafpageConf"></gpower-page>
+                        </div>
+
+                    </div>
+                    </div>
+                    <div  ng-show="auditsManagement" >
+
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" ng-click="viewdaishenhe()"
+                                   aria-expanded="false"> 待审核文章 </a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab"  ng-click="viewhasshenhe()"
+                                   aria-expanded="true"> 已审核文章 </a>
+                            </li>
+                        </ul>
+                        <div  ng-show="daishenhe">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr role="row" class="heading">
+                                    <th width="8%"> #</th>
+                                   <!-- <th width="8%"> 微信头像</th>-->
+                                    <th width="14%"> 微信公众号 </th>
+                                    <th width="8%">类型</th>
+                                    <th width="25%"> 创建时间 </th>
+                                    <th  width="8%">审核进度</th>
+                                    <th   width="20%">标题</th>
+                                    <th width="18%"> 操作 </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr  ng-repeat="article in auditArticleList">
+                                    <td><span>{{$index+1}}</span></td>
+                                   <!-- <td>
+                                        <a
+                                                ng-href="storage/wx/{{article.wxAccount.logo}}" class="fancybox-button" data-rel="fancybox-button">
+                                            <img class="img-responsive" ng-src="storage/wx/{{article.wxAccount.logo}}" alt=""> </a>
+                                    </td>-->
+                                    <td>{{getWxAccount((article.wxAccountID))}}</td>
+                                    <td>
+                                        <span  ng-if="article.type==1">文本</span>
+                                        <span ng-if="article.type==2">图片</span>
+                                        <span  ng-if="article.type==3">图文</span>
+                                    <td><span>{{article.createDate|date:'yyyy-MM-dd HH:mm'}}</span></td>
+
+                                    <td>  <p class="text-capitalize" ng-if="article.status==1">
+                                        <strong> 待审核</strong>
+                                    </p>
+                                        <p class="text-capitalize" ng-if="article.status==2">
+                                            <strong> 退回</strong>
+                                        </p>
+                                        <p class="text-capitalize" ng-if="article.status==3">
+                                            <strong> 修改</strong>
+                                        </p>
+
+                                    </td>
+
+
+                                    <td>
+                                        <p  ng-if="article.type==1">{{article.text.title}}</p>
+                                        <p ng-if="article.type==2">{{article.image.imagetitle}}</p>
+                                        <p  ng-if="article.type==3">{{article.newsList[0].title}}</p>
+
+                                    </td>
+                                    <td>
+                                        <a shiro:hasPermission="user"
+                                           ng-click="auditArticle(article.id)">审核</a>
+
+                                        <a  shiro:lacksPermission="user"
+                                           ng-click="editdraftArticle(article.id)">编辑</a>
+
+
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="span12">
+                                <gpower-page conf="waitauditpageConf"></gpower-page>
+                            </div>
+                        </div>
+
+                        <div  ng-show="yishenhe">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr role="row" class="heading">
+                                    <th width="8%"> #</th>
+                                  <!--  <th width="8%"> 微信头像</th>-->
+                                    <th width="15%"> 微信公众号 </th>
+                                    <th width="5%">类型</th>
+                                    <th width="20%"> 创建时间 </th>
+                                    <th width="8%">审核状态</th>
+                                    <th width="25%">标题</th>
+                                    <th width="25%"> 操作 </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr   ng-repeat="hasarticle in hasauditArticleList">
+                                    <td><span>{{$index+1}}</span></td>
+                                  <!--  <td>
+                                        <a
+                                                ng-href="storage/wx/{{hasarticle.wxAccount.logo}}" class="fancybox-button" data-rel="fancybox-button">
+                                            <img class="img-responsive" ng-src="storage/wx/{{hasarticle.wxAccount.logo}}" alt=""> </a>
+                                    </td>-->
+                                    <td>{{getWxAccount((hasarticle.wxAccountID))}}</td>
+                                    <td>
+                                        <span  ng-if="hasarticle.type==1">文本</span>
+                                        <span ng-if="hasarticle.type==2">图片</span>
+                                        <span  ng-if="hasarticle.type==3">图文</span>
+                                    <td><span>{{hasarticle.createDate|date:'yyyy-MM-dd HH:mm'}}</span></td>
+
+                                    <td>
+                                        <span class="text-capitalize" ng-if="hasarticle.status==4">
+                                             已审核
+                                        </span>
+                                        </span>
+                                        <span class="text-capitalize" ng-if="hasarticle.status==2">
+                                            退回
+                                        </span>
+                                        <span class="text-capitalize" ng-if="hasarticle.status==3">
+                                            修改
+                                        </span></td>
+                                    <td>
+
+                                        <span ng-if="hasarticle.type==1">{{hasarticle.text
+                                            .title}}</span>
+
+
+                                        <span ng-if="hasarticle.type==2">{{hasarticle.image.imagetitle}}</span>
+
+                                        <span ng-if="hasarticle.type==3">
+                                        </span>
+
+
+
+                                    </td>
+                                    <td>
+
+                                        <a
+                                            ng-click="chehui(hasarticle.id);" >撤回</a>
+
+                                        <div class="btn-group"  ng-if="hasarticle.status==4">
+                                            <a   ng-if="hasarticle.status==4"  data-toggle="dropdown" aria-expanded="true"> 发送
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="javascript:;"
+                                                       ng-click="submitFormnow(hasarticle)">
+                                                        立即发送 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" ng-click="submitTimerForm(hasarticle)"> 定时发送 </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="span12">
+                                <gpower-page conf="hasauditpageConf"></gpower-page>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div ng-show="haspublisharticle1">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="portlet light bordered">
+                                    <div class="portlet-title tabbable-line">
+                                        <div class="caption caption-md">
+                                            <i class="icon-globe theme-font hide"></i>
+                                            <span
+                                                    class="caption-subject font-blue-madison bold uppercase">已群发文章</span>
+                                        </div>
+                                    </div>
+
+
+
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                        <tr role="row" class="heading">
+                                            <th width="8%"> #</th>
+                                           <!-- <th width="8%"> 头像</th>-->
+                                            <th width="25%"> 名字 </th>
+                                            <th>类型</th>
+                                            <th>标题</th>
+                                            <th width="10%">状态</th>
+                                            <th width="20%"> 发布时间 </th>
+                                            <th width="10%"> 操作 </th>
+                                            <th width="10%"> 一键撤稿 </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr  ng-repeat=" par in pubishArticleList">
+                                            <td><span>{{$index+1}}</span></td>
+                                           <!-- <td>
+                                                <a
+                                                        ng-href="storage/wx/{{par.wxAccount.logo}}" class="fancybox-button" data-rel="fancybox-button">
+                                                    <img class="img-responsive"
+                                                         ng-src=storage/wx/{{par.wxAccount.logo}} alt=""> </a>
+                                            </td>-->
+                                            <td><span>
+                                                {{getWxAccount(par.wxAccountID)}}
+                                            </span></td>
+                                            <td>
+                                                <p  ng-if="par.type==1">文本</p>
+                                                <p ng-if="par.type==2">图片</p>
+                                                <p  ng-if="par.type==3">图文</p>
+                                            </td>
+
+<td>
+    <div >
+        <span ng-if="par.type==1" >{{par.text.content}}</span>
+        <span ng-if="par.type==2">{{par.image.imagetitle}}
+                                                             </span>
+        <span ng-if="par.type==3">{{par.newsList[0].title}}</span>
+
+    </div>
+</td>
+                                            <td>
+                                                <span ng-if="par.status==6">发送完毕</span>
+
+                                                <span ng-if="par.status==7">发布失败</span>
+                                                <span ng-if="par.status==8">发布后删除</span>
+                                               <!-- <span class="caret"></span>-->
+                                            </td>
+
+                                            <td>{{par.publishDate |
+                                                date:'yyyy-MM-dd HH:mm'}}
+                                            </td>
+                                            <td >
+
+                                                <button ng-if="par.status==6||par.status==7"
+                                                class="btn btn-success"
+                                                        ng-click="removePublishArticle(par)">删除</button>
+                                          </td>
+                                            <td><button class="btn btn-primary">撤稿</button></td>
+                                        </tr>
+                                        </tbody>
+                                        </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                    <div class="span12">
+                                        <gpower-page conf="pageConf"></gpower-page>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade bs-example-modal-sm" id="fabuModal" tabindex="-1" role="dialog"
+             data-backdrop="static" aria-labelledby="groupUserModal">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content" style="margin-top: 20%;">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true"></button>
+                        <h4 class="modal-title" id="wbpublshiformLabel" >定时发布</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" ng-model="pumessage">
+
+                                <input type="text"
+                                       class="form-control" readonly
+                                       placeholder="发送时间"
+                                       id="publishDate" date-picker
+                                       data-format="yyyy-mm-dd hh:ii"
+                                       min-date="{{initTime | date:'yyyy-MM-dd'}}"
+                                       ng-model="pumessage.publishDate">
+                            </div>
+
+                        </div>
+                    <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary" ng-click="submitPublish(pumessage)">确定
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+                $(".select2-multiple").select2({
+                    placeholder: '请选择发布账号'
+                });
+
+
+                function selectfile() {
+                    $("#sf").trigger("click");
+
+
+
+                }
+            </script>
+

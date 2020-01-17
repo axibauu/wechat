@@ -1,0 +1,34 @@
+<div style="overflow: auto">
+    <div align="left" style="float: left">
+        <span class="pagination" style="margin-left: 10px;color: #337ab7">
+            显示第{{(conf.currentPage-1)*conf.pageSize+1}}条
+            至
+            {{conf.currentPage*conf.pageSize>conf.totalCount?conf.totalCount:conf.currentPage*conf.pageSize}}条记录,
+            共{{conf.totalCount}}条
+            <select ng-model="conf.pageSize" ng-options="i
+                 for
+                  i in [5,10,15,20,25]">
+            </select>条/页
+        </span>
+    </div>
+    <div align="right" style="float: right">
+        <ul id="page" class="pagination" style="margin-left: 10px;">
+            <li><a data-original-title="" title="" ng-click="GpowerFristPage()">首页</a></li>
+            <li><a data-original-title="" title="" ng-click="GpowerPrevPage()">上一页</a></li>
+            <li ng-repeat="index in conf.showPages" ng-disabled="index==conf.page.currentPage"
+                ng-class="{active:index==conf.currentPage}"><a data-original-title=""
+                                                                    ng-click="GpowerDoCurrPage(index)"
+                                                                    title="">{{index}}</a></li>
+            <li><a data-original-title="" title="" ng-click="GpowerNextPage()">下一页</a></li>
+            <li><a data-original-title="" title="" ng-click="GpowerLastPage()">末页</a></li>
+            <li>
+            <span>
+                当前<input type="text" style="width: 30px; height: 20px;" ng-model="conf.jumpPage"> / {{conf.totalPage}}
+            </span>
+            </li>
+            <li>
+                <a ng-click="GpowerJumpPage()"><span>跳转</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

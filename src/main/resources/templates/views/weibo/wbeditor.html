@@ -1,0 +1,220 @@
+<style>
+
+    td
+    {
+        text-align:center;
+    }
+    th
+    {
+        text-align:center;
+    }
+</style>
+<div class="page-bar" style="background-color: #1111">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a ui-sref="wbPublishSetting">微博发布平台</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">微博管理</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+
+        <div class="portlet light bordered">
+            <div class="portlet-title tabbable-line">
+
+            </div>
+            <div class="portlet-body">
+                <div  class="inbox">
+                    <div class="inbox-body">
+                        <div class="inbox-header">
+                            <h1 class="pull-left">编辑微博</h1>
+
+                        </div>
+                        <div class="inbox-content">
+                            <div class="inbox-form-group" style="margin-top: 10px;">
+                                <label class="control-label">发布账号:</label>
+                                <div class="controls">
+                                    <input class="form-control"     ng-model="wbPublish.accounts">
+                                </div>
+                            </div>
+                            <div class="inbox-form-group" style="margin-top: 10px;">
+                                <label class="control-label">发布内容:</label>
+                                <div class="controls">
+                                    <textarea class="form-control" ng-model="wbPublish.content" style="height: 200px"
+                                              placeholder="输入发布内容"></textarea>
+                                </div>
+                            </div>
+                            <div class="inbox-compose-attachment">
+                                <div class="cleafix">
+                                    <button class="btn btn-default"><i class="fa fa-smile-o"></i> 表情</button>
+                                    <input   ngf-select="uploadFiles($file,$errorfile)" ng-model="wbPublish.image" type="file" name="file"
+                                             id="file"
+                                             οnchange="fileUpload()" style="display:none">
+                                    <button  id ="sf" ng-click="selectfile()"
+                                             class="btn btn-default"><i
+                                            class="fa fa-picture-o"></i> 图片</button>
+                                    <button class="btn btn-default"><i class="fa fa-video-camera"></i> 视频</button>
+                                    <button class="btn btn-default"><i class="fa fa-group"></i> 话题</button>
+                                    <button class="btn btn-default"><i class="fa fa-newspaper-o"></i> 头条新闻</button>
+                                </div>
+
+                                <table   id="hah"  ng-if="wbPublish.image!=null&&wbPublish.image!=''"  role="presentation" class="table table-striped margin-top-10">
+                                    <tbody class="files">
+                                    <tr class="template-download fade in">
+                                        <td class="name" width="30%">
+                                            <span  ng-if="!firstload">{{wbPublish.image}}</span>
+                                            <span  ng-if="firstload">{{wbPublish.image}}</span>
+                                        </td>
+
+                                        <td class="error" width="30%" colspan="2">
+                                            <span ng-if="wbPublish.image!=null&&wbPublish.image!=''" >图片</span>
+                                        </td>
+                                        <td class="edit" width="10%" align="right">
+                                            <!--  <button class="btn green"> 预览
+                                                  <i class="fa fa-eye"></i>
+                                              </button>-->
+                                            <button class="btn default btn-sm" data-type=""
+                                                    ng-if="wbPublish.image!=null"
+                                                    data-url="" ng-click="lookimage(wbPublish.image)">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                        </td>
+                                        <td class="delete" width="10%" align="right">
+                                            <button class="btn default btn-sm" data-type=""
+                                                    ng-if="wbPublish.image!=null&&wbPublish.image!=''"
+                                                    data-url="" ng-click="deleteimage(this)">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="inbox-compose-btn">
+                              <!--  <button class="btn green"> 预览
+                                    <i class="fa fa-eye"></i>
+                                </button>-->
+                                <button shiro:lacksPermission="user" class="btn green"   ng-click="submitAudit()"> 提交审核
+                                <i class="fa fa-eye"></i>
+                                </button>
+                                <div class="btn-group"  shiro:hasPermission="user">
+                                    <a class="btn btn-default dropdown-toggle green" data-toggle="dropdown" aria-expanded="true"> 发送
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="javascript:;"  ng-click="submitForm()">
+                                                立即发送 </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" ng-click="submitTimerForm()"> 定时发送 </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="btn blue" ng-click="saveForm()">保存草稿
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button class="btn btn-default"  onclick="window.history.go(-1);">关闭
+                                    <i class="fa fa-close"></i>
+                                </button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+        <div class="modal fade bs-example-modal-sm" id="fabuModal" tabindex="-1" role="dialog"
+             data-backdrop="static" aria-labelledby="groupUserModal">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content" style="margin-top: 20%;">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true"></button>
+                        <h4 class="modal-title" id="wbpublshiformLabel" >定时发布</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" ng-model="pumessage">
+
+                            <input type="text"
+                                   class="form-control" readonly
+                                   placeholder="发送时间"
+                                   id="publishDate" date-picker
+                                   data-format="yyyy-mm-dd hh:ii"
+                                   min-date="{{initTime | date:'yyyy-MM-dd'}}"
+                                   ng-model="pumessage.publishDate">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="btn btn-primary" ng-click="submitPublish(pumessage)">确定
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+        <div class="modal fade bs-example-modal-sm" id="wbPublishNumber" role="dialog" aria-labelledby="weixinPublishNumberLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" style="width:30%;margin:0 auto;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true"></button>
+                        <h4 class="modal-title" id="weixinPublishNumberLabel" ng-bind="formName"></h4>
+                    </div>
+                    <div class="modal-body" style="text-align: center;">
+
+                    <img   style="width: 40%;height: 40%;text-align: center;" class="img-responsive" ng-src="{{editimageurl}}">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary blue"
+                                ng-disabled="WxAccountName.flag"
+                                ng-click="submitWxAccountForm()">确定
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            $(".select2-multiple").select2({
+                placeholder: '请选择发布账号'
+            });
+
+
+            function selectfile() {
+                $("#sf").trigger("click");
+
+
+
+            }
+        </script>

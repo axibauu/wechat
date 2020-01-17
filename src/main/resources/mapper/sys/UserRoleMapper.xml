@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gpower.modules.user.dao.UserRoleDao">
+
+    <select id="selectRolesByUserId" parameterType="java.lang.String" resultType="com.gpower.modules.user.entity.Role">
+  		select role.* from gprole role left join gpuser_role userRole on role.ID=userRole.role_id
+		where userRole.user_id=#{userID}
+   </select>
+
+
+    <select id="selectRoleByUserId" parameterType="java.lang.String" resultType="com.gpower.modules.user.entity.Role">
+  		select * from gprole role left join gpuser_role userRole on role.ID=userRole.role_id
+		where userRole.user_id=#{userID}
+   </select>
+
+    <delete id="deleteByUserId" parameterType="java.lang.String">
+        delete from gpuser_role where user_id=#{id}
+
+    </delete>
+
+</mapper>

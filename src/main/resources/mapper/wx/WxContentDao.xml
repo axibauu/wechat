@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gpower.modules.wx.dao.WxContentDao">
+    <select id="selectByCondition" parameterType="java.util.Map" resultType="com.gpower.modules.wx.entity.WxContent">
+    SELECT * FROM gpwx_content
+    <where>
+        <if test="type!=null and type!=''">AND type=#{type}</if>
+        <if test="status!=null and status!=''">AND status=#{status}</if>
+        <if test="statusGT!=null"><![CDATA[AND status>#{statusGT}]]></if>
+        <if test="wxAccountID!=null ">AND wxAccountID=#{wxAccountID}</if>
+        <if test="owner!=null ">AND owner=#{owner}</if>
+
+        <if test="publishDateBegin!=null "><![CDATA[AND publishDate=>#{publishDateBegin}]]></if>
+        <if test="publishDateEnd!=null "><![CDATA[AND publishDate<=#{publishDateEnd}]]></if>
+        <if test="ownerList!=null  and ownerList.size()>0">AND
+            <foreach collection="ownerList" index="index" item="owner" open="(" separator="or" close=")">
+                owner = #{owner}
+            </foreach>
+        </if>
+    </where>
+    </select>
+
+   <!-- <select id="selectList"  resultType="com.gpower.modules.wx.entity.WxContent">
+
+        select *  from  gpwx_content where  owner in (select userID from  gpuser_group where
+        groupid in (select userID from gpuser_group where userID=#{id}))
+        <where>
+
+        </where>
+    </select>-->
+    <update id="updatePublishStatus" >
+   		<![CDATA[UPDATE gpwx_content SET status=#{status} WHERE status=3 AND publishDate<=#{date}]]>
+   	</update>
+
+    <select id="getText" parameterType="java.lang.String" resultType="com.gpower.modules.wx.entity.WxTextContent">
+   		select * from gpwx_textcontent where wxContentID=#{wxContentID}
+   	</select>
+
+
+</mapper>

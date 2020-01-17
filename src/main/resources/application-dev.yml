@@ -1,0 +1,103 @@
+server:
+  port: 8500
+spring:
+  datasource:
+    hikari:
+      ##   jdbc-url: jdbc:mysql://192.168.2.8:3306/gpowerbase?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=GMT
+     jdbc-url: jdbc:mysql://localhost:3306/gpowerbase?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+     username: root
+       ##    password: Gpower[2019]
+     password: root
+     driver-class-name: com.mysql.jdbc.Driver
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:ehcache/ehcache-local.xml
+  mail:
+    host: smtp.qq.com
+    username: 340244120@qq.com
+    password: doyzrrbsixdqbibf
+    default-encoding: UTF-8
+    protocol: smtp
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: root
+
+file:
+  upload: C:/MySoft/apache-tomcat-8.5.34
+  url:   http://192.168.2.144
+
+kaptcha:
+  #  注意：YAML 的布尔值（true, false, yes, no, on, off）必须要使用引号引起来（单引号、双引号均可），否则会当成字符串解析
+  border: "no"
+  servlet:
+    url: /resource/ucode.jpg
+  textproducer:
+    char:
+      string: 3231213123123213213213
+      length: 4
+    font:
+      size: 43
+      names: Arial,STIX-Regular,Bold,Italic
+      color: red
+  image:
+    height: 50
+    width: 135
+  noise:
+    color: black
+
+logging:
+  level.com.gpower: info
+  path: C:/tmp
+ #修改相应resource,secret及auth-server-url
+
+cms:
+  workspace: D:/cms8_workspace
+  license:
+    path: ${cms.workspace}/license
+
+
+
+gpower:
+  file:
+    upload-path: ${file.upload}/webapps/publish/wxupload/
+  contentimage:
+    prefix: http://mmbiz.qpic.cn/mmbiz_
+  wx:
+    contentimage:
+      prefix: http://mmbiz.qpic.cn/mmbiz_
+    thumb:
+      maxSize: 64
+      ext:
+        allow: jpg
+    image:
+      maxSize: 2
+      ext:
+        allow: png,jpeg,jpg,gif
+  wxpublish:
+    remote:
+      url: http://localhost:18080/wx/TransferStation
+      on: false
+  publish:
+    path: ${file.upload}/webapps/publish
+    url: ${file.url}:8080/publish
+  wb:
+    tokenurl: ${file.url}:${server.port}/medium/wb/account/getToken
+    weburl: https://www.gpowersoft.com/index.htm
+    thumb:
+      maxSize: 50
+      ext:
+        allow: png,jpeg,gif
+
+mail:
+  formMail:
+    addr: 340244120@qq.com
+
+debug: false
+
+
+
+
+
+

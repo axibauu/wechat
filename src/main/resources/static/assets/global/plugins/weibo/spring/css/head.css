@@ -1,0 +1,118 @@
+@charset“utf-8”;
+.head_lef ul li ai，.medals a，.head_rig .user .nick i，.head_rig ul li a {background：url（../ images / public_20131111.png）no-repeat}
+/ *头部公用* /
+：root .head，：root .head_lef ul li a：hover {filter：none \ 9;}
+.head {身高：70px; background：rgba（0,0,0,0.5）; 滤波器：的progid：DXImageTransform.Microsoft.gradient（startColorstr =＃7F000000，endColorstr =＃7F000000）;宽度：100％; 保证金：0自动;}
+.head_lef {float：left}
+.head h1 {width：224px; 高度：46px; 填充：12px 0 0 15px; 向左飘浮}
+.head h1 a {width：100％; 高度：100％; 显示：内联块; background：url（../ images / logo.png）no-repeat}
+
+.head_lef ul {float：left; 填充左：30PX}
+.head_lef ul li {float：left}
+.head_lef ul li a {display：inline-block; 颜色：#FFF; 字体大小：16px的; 字体重量：600; 填充：26px 30px; 位置：相对}
+.head_lef ul li a span {position：absolute; display：inline-block; 宽度：24px; 身高：11px; background：url（../ images / hot.gif）left top no-repeat; 上：15px;右：5px;}
+.head_lef ul li a：hover，.head_lef ul li a.current，.head_lef ul li a.current：hover {background：rgba（0,0,0,0.2）; 滤波器：的progid：DXImageTransform.Microsoft.gradient（启用= '真'，startColorstr = '＃22000000'，endColorstr = '＃22000000'）; 文字装饰：无}
+.head_lef ul li ai，.head_rig .user .nick i {width：9px; 高度：为5px; _overflow：隐藏; 显示：内联块; background-position：-110px -789px; 垂直对齐：中部; margin-left：10px}
+.head_lef ul li.more_app {position：relative; 的z-index：99}
+.head_lef ul li.more_app a {* padding：24px 30px}
+.head_lef ul li.more_app div {width：164px; 位置：绝对的; 顶部：60像素; 左：30PX; 的z-index：999999; 填充：15px 0; 边界半径：3px的; border：1px solid #eee; box-shadow：0 0 3px rgba（0,0,0,0.8）; 背景色：#FFF; 显示：无}
+.head_lef ul li.more_app div h3 {font-size：14px; 行高：25像素; 填充：0 10px; 字体重量：600}
+.head_lef ul li.more_app div h3 span {width：70px; 显示：内联块; 高度：2px的; _overflow：隐藏; border-bottom：1px点缀#ccc; 垂直对齐：中部; 保证金：-2px 0 0 10px; *边距：0}
+.head_lef ul li.more_app div a {padding：0 20px; 宽度：124px; 高度：30PX; 行高：30像素; 字体大小：14px的; 字体重量：正常; 颜色：＃333;}
+.head_lef ul li.more_app div a：hover {filter：none; 背景：#EAEAEA;}
+.head_rig {float：right; 填充：20px 15px 0 0}
+.medals {padding：8px 10px 0 0; 向左飘浮}
+.medals a {宽度：16px; 高度：知识+; 显示：内联块; 向左飘浮; 保证金右：5px的}
+.medals a.no_years_vip {background-position：-67px -799px}
+.medals a.years_vip {background-position：-67px -819px}
+.medals a.no_vip {background-position：-86px -799px}
+.medals a.vip {background-position：-86px -819px}
+.medals a.no_daren {background-position：-48px -799px}
+.medals a.daren {background-position：-48px -819px}
+.medals a.no_jinpai，.medals a.jinpai，.medals a.no_vip-hy，.medals a.vip-hy，.medals a.vip-bj {width：45px; 高度：16px的}
+.medals a.no_jinpai {background-position：0 -906px}
+.medals a.jinpai {background-position：0 -924px}
+.medals a.no_vip-hy {background-position：-46px -906px}
+.medals a.vip-hy {background-position：-46px -924px}
+.medals a.no_vip-bj {background-position：-92px -906px}
+.medals a.vip-bj {background-position：-92px -924px}
+.head_rig .user {float：left; 填充顶：3px的; 位置：相对; 的z-index：99}
+.head_rig .user .user_box {float：left; 位置：相对; 的z-index：99}
+.head_rig .user .nick {display：inline-block; 颜色：#FFF; 边距：4PX}
+.head_rig .user .nick span {display：inline-block; 最大宽度：91px; 高度：20像素; _width：91px; 溢出：隐藏; 文本溢出：省略号; 空白：NOWRAP; 垂直对齐：中}
+.head_rig .user .user_box ul {width：90px; 背景：#FFF; 填充：5px 5px 0; 位置：绝对的; 顶部：25像素; 左：0; 的z-index：9999; 显示：无}
+.head_rig .user .user_box ul li {width：90px; 高度：25px;边界底部：1px实心#CCC; 行高：25像素;}
+.head_rig .user .user_box ul li a {padding-left：25px; color：＃000; 文字修饰：无;宽度：65px; 显示：块; 高度：25像素; 行高：25像素; background：url（../ images / pic1_2012_09_19.gif）no-repeat}
+.head_rig .user .user_box ul li a：hover {color：＃06c; 文字修饰：无;}
+.head_rig .user .user_box ul li a.myfirend {background-position：5px -217px}
+.head_rig .user .user_box ul li a.mypic {background-position：5px -237px}
+.head_rig .user .user_box ul li a.changem {background-position：5px -258px}
+.head_rig .user .user_box ul li a.mywallet {background-position：0 -286px}
+.head_rig .user .user_box ul li a.mynrk {background-position：4px -478px}
+.head_rig .user .user_box ul li a.mytpk {background-position：5px -504px}
+.head_rig .user .user_box ul li a.exit {background-position：5px -524px}
+.head_rig .user .user_box ul li a.defult {background：none}
+.head_rig ul {float：left; 填充左：20像素}
+.head_rig ul li {float：left; 保证金权：10px的}
+.head_rig ul li a {width：27px; 高度：27px; 显示：内联块; }
+.head_rig ul li a.news {background-position：-93px -845px; 位置：相对}
+.head_rig ul li a.news u {border-radius：50％; 宽度：20像素; 高度：20像素; 行高：20像素; 文字修饰：无; 字体大小：12像素; 显示：内联块; 位置：绝对的; 顶部：-12px; 右：-12px; 的z-index：0; 背景色：＃FF4502; 颜色：#FFF; 文本对齐：中心;}
+.head_rig ul li a.rap {background-position：0 -845px;}
+.head_rig ul li a.help {background-position：-31px -845px}
+.head_rig ul li a.kefu {background-position：-62px -845px}
+.head_rig ul li.re {position：relative}
+.head_rig ul li .weixin {position：absolute; 顶部：35px; 右：0; 的z-index：99; border：1px solid #ccc; 背景色：#FFF; 边界半径：3px的; 宽度：240像素; 显示：无}
+.head_rig ul li .weixin .caret_Up {left：auto; 右：30PX}
+.head_rig ul li .weixin .weixin_box {padding：20px 20px 5px}
+.head_rig ul li .weixin p {text-align：center; 填充底：5像素}
+.head_rig ul li .weixin p.poin {color：＃FF9900; 填充：8px 0}
+.head_rig ul li .weixin p img {width：200px; 高度：200像素}
+.head_rig ul li .weixin pa {background：none; 显示：内联}
+/ * *换肤/
+.pp_rap {宽度：578px; 位置：绝对的; 顶部：70像素; 右：67px; 的z-index：99; 边框：1px solid＃A6A6A6; 背景：#FFF; 填充底：20像素}
+.pp_rap_top {宽度：568px; 高度：35px; 背景：＃E5E5E5; 填充左：10px的; 行高：35px;}
+.pp_rap_top span {width：14px; 高度：14px的; 显示：块; background-position：0 -164px; 保证金：10px 5px 0 0; 显示：内联}
+.pp_rap_top a {width：15px; 高度：15px的; 显示：块; background-position：0 -197px; 保证金：10px 5px 0 0; 显示：内联}
+.skin_nav {font-size：14px; 边距：10px的}
+.skin_nav a {float：left; 颜色：＃333; 显示：内联块; 填充：2px 10px 4px}
+.skin_nav a：悬停{text-decoration：none}
+.skin_nav a.current {color：#fff; 背景色：＃4190DF; 边界半径：2px的}
+.rap_custom {font-size：14px; 填充底：20像素; 显示：无}
+.custom_main {padding：30px 20px 20px; 背景色：＃EEF2F5; border：1px solid＃E3E3E3; 边距：10px的}
+.custom_main p {padding-bottom：10px}
+.custom_main span.path {width：230px; 高度：30PX; 显示：内联块; border：1px solid #ccc; 行高：30像素; FONT-FAMILY： “微软雅黑”; 垂直对齐：中部; 背景色：#FFF}
+.custom_main a，.pp_rap_bd input {width：90px; 高度：34像素; background：url（../ images / qypt_maue.png）no-repeat 0 -200px; 行高：34像素; 颜色：#FFF; 光标：指针; 边界：0; 字体大小：14px的; 字体重量：粗体; 保证金权：10px的;}
+.custom_main a {溢出：隐藏; 显示：内联块; 颜色：#FFF; 位置：相对; 垂直对齐：中部; 保证金左：10px的; 文本对齐：中心}
+.custom_main a：悬停{text-decoration：none}
+.custom_main一个输入{height：30px; 位置：绝对的; 顶部：0; 左：-150px; 不透明度：0; 滤波器：α（不透明度= 0）}
+.custom_main p.gray {font-size：14px; 颜色：＃888}
+.pp_rap_nav {宽度：578px; 高度：30PX; 背景：#EFEFEF; border-top：1px solid＃D5D5D5; border-bottom：1px solid＃D5D5D5; 位置：相对}
+.pp_rap_nav a {padding：0 10px; 显示：块; 高度：30PX; 行高：30像素; 颜色：＃2B4A78; 位置：绝对}
+.pp_rap_nav a：悬停{color：＃2B4A78}
+.pp_rap_nav a.nor {background：#FFF; border-left：1px solid＃D5D5D5; border-right：1px solid＃D5D5D5; 顶部：1px的; 字体重量：粗体; 颜色：＃333}
+.pp_rap_nav a.nor：hover {color：＃333}
+.pp_rap_nav a.p1 {left：0}
+.pp_rap_nav a.p2 {left：70px}
+.pp_rap_body {宽度：543px; 保证金：10px auto 0; border-bottom：1px dashed #ccc; 填充底：5像素}
+.pp_rap_body li {width：122px; 高度：70像素; border：1px solid #CCC; 填充：2px的; 向左飘浮; 保证金：0 10px 10px 0; 显示：内联; }
+.pp_rap_body li a {position：relative; width：122px; 高度：70像素; 显示：块}
+.pp_rap_body_tm {宽度：122px; 高度：20像素; 背景：＃000; 滤波器：α（不透明度= 65）;  -  MOZ不透明度：0.65;不透明度：0.65; 位置：绝对的; 底部：0; 左：0; 文本对齐：中心; 行高：20像素; 的z-index：990}
+.pp_rap_body_tm_span {宽度：122px; 高度：20像素; 显示：块;位置：绝对的; 的z-index：999; 底部：0; 左：0; 文本对齐：中心; 行高：20像素; 颜色：#FFF}
+.pp_rap_fy {宽度：543px; 高度：15px的;文本对齐：权利; 保证金：0自动; 填充底：10px的;}
+.pp_rap_fy span {margin-right：5px}
+.pp_rap_fy a {margin-right：5px}
+.pp_rap_bd {width：150px; margin：20px auto 0}
+.pp_rap_bd输入{display：inline}
+.pp_rap_bd a {margin-top：8px}
+.pp_rap_custom {宽度：420PX; 高度：120像素; 保证金：10px auto 0; border：1px solid #CCC; 填充：10px 0 0 20px}
+.pp_rap_browse {width：245px; family：宋体; 位置：相对}
+.pp_rap_custom_txt {border：1px solid＃C5C5C5; 背景：#FFF; 颜色：＃333; 宽度：170像素; 高度：20像素; 字体：12px / 20px“宋体”; 保证金：0}
+.pp_rap_custom_maue {width：60px; family：宋体; 行高：20像素; 保证金左：10px的}
+.pp_rap_file {位置：绝对的; 的z-index：999; 宽度：20像素; family：宋体; 滤波器：α（不透明度= 0）;  -  MOZ不透明度：0;不透明度：0}
+.pp_rap_file输入{height：23px; 光标：指针; }
+.pp_browse_color {color：＃666; 边距：5px的}
+.pp_rap_thumbnail {背景：#EFEFEF; 颜色：＃999; 宽度：106px; 高度：106px; 文本对齐：中心; border：2px solid＃32A1CC; 保证金左：40像素; 显示：内联; 字体大小：14px的; 位置：相对}
+.pp_rap_thumbnail span {line-height：106px}
+.pp_rap_loding {margin-top：35px}
+a.pp_rap_lose {位置：绝对的; 顶部：0; 右：0; 颜色：＃333; 宽度：20像素; 高度：20像素; 显示：块;}
+a.pp_rap_lose：hover {color：＃333; 文字装饰：无}

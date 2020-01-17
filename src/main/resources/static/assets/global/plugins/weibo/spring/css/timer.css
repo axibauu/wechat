@@ -1,0 +1,479 @@
+@charset“utf-8”;
+/ **********主体样式********** /
+/ **转播地址下拉** /
+.xl_down {width：568px; border：1px solid＃B1995C; position：absolute; top：208px; left：103px; z-index：998; 背景色：#FFF}
+.londing {文本对齐：中心;高度：30像素; 行高：30像素; 位置：相对}
+.nfBox {height：25px; padding：7px 10px 7px 10px; background：#EFEFEF; width：303px;}
+.nfBox a {display：block; height：20px; line-height：20px; text-align：center; margin-right：1px; border：1px solid #EFEFEF; 宽度：60像素; 保证金权：10px的; 显示：内联; 向左飘浮}
+.nfBox a.current，.nfBox a.current：link，.nfBox a.current：visited {text-decoration：none; background：＃4D9CC7; border：1px solid #ccc; 颜色：#FFF}
+.nfBox_span {字体重量：粗体; 向左飘浮; 保证金：6px 5px 0 0; 字体大小：14px的}
+.zb_down {width：537px; padding：3px 15px 0}
+.zb_down p {width：537px; padding-left：10px; 文本对齐：左; border-bottom：#CCC 1px破折号; 填充：10px 0}
+.cee {显示：块; background-position：0 -23px; color：＃999; text-indent：20px; clear：both;}
+.cee1 {position：absolute; border：1px #ccc solid; padding：4px; background：#fff; left：110px; z-index：997;}
+.fy {宽度：567px; 高度：20像素; 行高：12px的; 文本对齐：中心}
+.span_fl {宽度：50％; 向左飘浮}
+
+.onlytxt {width：537px; padding：3px 15px 0}
+.xllb {border-bottom：#CCC 1px dashed; 边距：8像素; 填充底：5像素}
+.lf，。RT {宽度：48％; 向左飘浮}
+.lf {文本对齐：左}
+。RT {文本对齐：右}
+.relay_count_prompt {width：625px; 高度：20像素; 背景位置：495px -965px; 文本对齐：权利; 填充右：5px的}
+.relay_count_prompt strong {color：＃D56B03; 字体大小：14px的}
+/ **可视转播** /
+.kszb_banner {宽度：630像素; 高度：25像素; 保证金：10px auto 5px; 位置：相对; 的z-index：1}
+a.kszb_nav {显示：内联块;高度：25像素;线高度：25像素;文本对齐：中心;余量右：1px的; padding：0 5px; float：left; max-width：71px; overflow：hidden}
+a.kszb_nav：悬停{文字装饰：无}
+a.kszb_nav.current，a.kszb_nav.current：链接，a.kszb_nav.current：访问{文字装饰：无;背景：＃0099FF; 颜色：#FFF; border-radius：4px 4px 4px 4px;}
+.kszb_txt {宽度：200像素; family：宋体; 行高：23像素; 边框：1px solid＃999}
+.kszb_butom {宽度：50像素; 高度：25像素; 保证金左：10px的; 行高：20像素}
+.u104_ys {COLOR：＃999}
+.kszb_tjwy {background：url（../ images / my_friends.png）no-repeat 0 -1px;}
+.myfir_tc {宽度：285px;位置：绝对的;顶部：200像素; 左：250像素; 的z-index：999; 背景：#FFF; 填充底：20像素}
+.myfir_tc_bt {宽度：275px; 高度：35px; 背景：＃EAF3F9; 行高：35px; 填充：0 5px; 颜色：＃333; 字体重量：粗体}
+.myfir_tc_bt a {color：＃000; 字体大小：14px的}
+.myfir_tc_bt a：悬停{color：＃000; 文字装饰：无}
+.myfir_tc_inp {保证金：20px 0 10px 40px;}
+.myfir_tc_inp span {font-size：14px; }
+.myfir_tc_inp输入{border：1px solid #CCC; 高度：20像素; 垂直对齐：中部; 行高：20像素; 光标：文本; FONT-FAMILY： '微软雅黑'}
+a.myfir_tc_inp_slct {宽度：120像素; 高度：20像素; 行高：20像素; 显示：块; 保证金右：5px的; border：1px solid＃7F9DB9; background：url（../ images / my_friends.gif）no-repeat -60px -60px; 字体大小：14px的; 溢出：隐藏; 填充右：20像素; 颜色：＃333;}
+a.myfir_tc_inp_slct：hover {text-decoration：none; 颜色：＃333}
+.myfir_tc_inp_fz {宽度：140px; 位置：绝对的; 顶：118px; 左：80px; border：1px solid＃7F9DB9; 背景：#FFF; 的z-index：1000; 填充顶：5px的}
+.myfir_tc_inp_fz li {width：130px; 高度：20像素; 填充左：5px的}
+.myfir_tc_inp_fz li input {width：15px; 高度：15px的; 边界：0; 边距：3px的; 向左飘浮}
+.myfir_tc_inp_fz li label {width：115px; 显示：块; 浮动：左;光标：指针;}
+.myfir_namefz {宽度：250像素; 高度：70像素; border：1px solid＃F4E4B4; 背景：＃FFFFE9; 保证金：5px auto 0; 显示：无}
+.myfir_namefz_p1 {宽度：210px; 保证金：10px 0 0 10px}
+.myfir_namefz_txt {宽度：150像素; 高度：20像素; 边框：#CCC 1px solid; 行高：20像素; 保证金左：5px的}
+.myfir_tc_maue {margin：20px 0 0 95px}
+.myfir_tc_maue输入{width：50px; 高度：25像素; background：url（../ images / my_friends.png）no-repeat -150px 0; 边界：0; 保证金权：20px的; 光标：指针; 垂直对齐：中}
+.myfir_tc_maue1 {宽度：50像素; 高度：25像素;垂直对齐：中部; 保证金权：10px的}
+/ **微博转播详细内容页** /
+.zbnr_a {宽度：630像素; 填充：0 0 5px; 保证金：0自动}
+.zbnr_a li {width：630px; border-bottom：#CCC 1px dashed}
+.zbnr_st {padding：5px 8px; 边距：5像素;背景：＃F3F3F3;}
+.zbnr_st p {溢出：隐藏; 自动换行：break-word;}
+.photos_2 {宽度：50px;填充：12px 6px; 向左飘浮}
+.txts_2 {宽度：540px;浮动：左; 填充：10px 5px 0 15px}
+.txts_2 p {font-size：14px; margin-bottom：5px; overflow：hidden; 自动换行：break-word;}
+.txts_2 span img {padding：4px; border：1px solid #ccc; background：#fff; position：absolute; top：185px; left：75px; z-index：997;}
+.zbnr_zb {宽度：540px;高度：30像素; 保证金：5px 0 5px}
+.zbnr_zb div {line-height：30px; 向左飘浮}
+.zbnr_tc_til {font：12px}
+.zbnr_tc_til span.right {color：＃666}
+.zbnr_tc_dz {宽度：460像素; 高度：25像素; 保证金：8px 0;}
+.zbnr_tc_dz输入{width：458px; 高度：25像素; 边框：1px solid＃7E9DDD; 垂直对齐：中部; 行高：25像素}
+.zbnr_tc_txtclore {color：＃666}
+.dszb_tc {宽度：400像素; 高度：430px;边界：1px实心＃999;位置：绝对;顶部：210px;左：208px; z-index：15000; 背景色：#FFF}
+.dszb_tc_bt {背景色：#CCC;宽度：380px; 高度：30PX; 文本对齐：左;的line-height：30PX; 颜色：＃000; 字体大小：14px的; 字体重量：粗体; 填充：0 10px}
+.dszb_tc_bt span {float：left}
+.dszb_tc_til {width：460px; height：20px; margin：10px auto 5px; text-align：left; 字体大小：12像素;}
+.dszb_tc_til span.right {color：＃999}
+.dszb_tc_txt {宽度：460像素; 填充：0 10px; 保证金：0自动}
+.dszb_tc_txt textarea {width：450px; 高度：90像素; border：＃7E9DDD 1px solid; overflow：auto; 填充：5px的}
+.dszb_tc_pic {font：14px / 26px'微软雅黑'; 保证金：0 0 0 10px; 位置：相对; 的z-index：96;}
+.dszb_tc_mag {margin-left：10px; 显示：内联}
+.dszb_tc_tj {宽度：455px; 高度：30PX; 保证金：0自动}
+.dszb_tc_file {高度：20像素; 左：0; 溢出：隐藏; 位置：绝对的; 顶：3px的; 宽度：40像素; 的z-index：1;}
+.dszb_tc_file输入{width：40px; 高度：20像素; 边界：0; 背景：无; 不透明度：0;过滤器：α（不透明度= 0）;光标：指针}
+.dszb_tc_dwz {margin-top：5px}
+.dszb_tc_say {宽度：400像素; 填充：10px 0; }
+.date_1 {width：450px; height：24px; padding：6px 0; font：14px / 24px'微软雅黑';}
+.date_1 p {margin：0 5px 0 0; display：inline; float：left; 行高：28px}
+.date_1输入{width：90px; height：22px; padding：0 22px 0 3px; border：1px solid＃7E9DDD; 背景位置：95px 4px; 背景色：#FFF;字型family：宋体;行高：的22px;光标：指针}
+.date_1 select {height：24px; padding：1px; border：1px solid＃7E9DDD; background：#fff; font-family：arial; cursor：pointer;}
+.cee_a {左：30PX}
+.tc_maue {padding：0 10px; 字体大小：12px的}
+.tc_maue_down {边距：5px的}
+.zbcg，.zbsb {高度：30像素;线高度：30像素;文本对齐：中心;字体大小：14px的;}
+.zbcg {宽度：150像素;颜色：#FFF;背景色：＃093; 显示：块; 向左飘浮}
+.zbsb {宽度：100％;背景色：#FFC;颜色：＃F00; z索引：9999;}
+
+/ **批量广播** /
+.plgb_top {宽度：630像素; 填充：10px 0; border-bottom：1px solid #ccc; 保证金：0自动; 位置：相对}
+.pl_time_prompt {width：60px; 高度：25像素; 背景：＃009933; 颜色：#FFFFFF; 文本对齐：中心; 行高：25像素; 位置：绝对的; 顶部：35px; 右：10px的; 的z-index：99; 显示：无}
+.plgb_top li {身高：24px; 文本对齐：左; 填充左：20像素; 颜色：＃999}
+.plgb_top li p {margin：0 3px 0 0; display：inline; float：left}
+.plgb_top li.date {width：630px; height：24px; font：14px / 24px'微软雅黑'; float：none; clear：both; 填充左：0;颜色：＃333;}
+.plgb_top li.date select {height：24px; padding：1px; border：1px solid＃7E9DDD; background：#fff; font-family：arial; cursor：pointer}
+.plgb_top li.normal {float：none; color：＃999; clear：both}
+.input_1 {width：100px; height：22px; padding：0 12px 0 3px; border：1px solid＃7E9DDD; 背景位置：96px 4px; 背景色：#FFF;字型家族： '微软雅黑';行高：的22px;光标：指针}
+.input_2 {宽度：20像素; cursor：auto; height：22px; padding：0 12px 0 3px; border：1px solid＃7E9DDD; font-family：'微软雅黑'; line-height：22px; 背景：#FFF}
+.input_3 {宽度：60像素; 高度：25像素; 颜色：＃333;光标：指针;字型家族： '微软雅黑'; 行高：21px}
+.input_4 {width：130px; height：22px; padding：0 12px 0 3px; border：1px solid＃7E9DDD; 行高：的22px;背景：#FFF;字型家族： '微软雅黑'}
+.input_5，.input_6 {display：block; border：0 none; color：＃666; cursor：pointer; 字体大小：14px的; 字体重量：粗体;字型家族：“微软雅黑”}
+.input_5 {宽度：103px;高度：25像素; line-height：28px; background：url（../ images / an_a.png）-2px -68px #fff; font-family：'微软雅黑'}
+.input_6 {宽度：109px;高度：33px; line-height：33px; background：url（../ images / an_a.png）-2px -3px #fff; 颜色：#FFF}
+.input_6_a，.input_6_b {position：absolute; z-index：999; font-family：'微软雅黑'}
+.input_6_a {顶部：228px; 右：320;}
+.input_6_b {顶部：228px; 右：205px;}
+
+.plgb_body {width：630px; margin：0 auto; 填充顶：8像素}
+.bk {width：630px; border-bottom：1px solid #ccc; 高度：240像素; 边距：10px的; 位置：相对;}
+.srz {宽度：520px; 填充右：80px; 高度：20像素; 文本对齐：权利;}
+.srk {宽度：55px; 高度：113px; text-align：center;字体：40px / 113px'微软雅黑'; 颜色：＃999}
+.srk_a {宽度：455px; 高度：123px;填充：2px 5px;边框：1px实心＃B1995C;背景：#fff; 位置：绝对的; 顶部：25像素; 右：110px; 的z-index：1;溢出：隐藏}
+.pptk_meue_a {位置：绝对的;顶部：20像素;右：10px的; 的z-index：1; 宽度：76px; 高度：61px;}
+.pptk_meue_a a {width：76px; 高度：40像素;显示：块; background-position：-115px -907px; 文本对齐：中心; 行高：40像素; 字体大小：14px的; 字体重量：粗体; 文字修饰：无; 颜色：#FFF; 边距：5px的}
+.pptk_meue_a a：悬停{color：#FFF; 文字装饰：无}
+.CR {宽度：650像素; 高度：20像素; 保证金：0自动; 背景：＃000}
+.czbc，.zbbc {宽度：55像素;高度：25像素; 行高：23像素; 颜色：＃333;光标：指针; 字体大小：12像素; FONT-FAMILY： '微软雅黑'; 的z-index：9; 位置：绝对;右：180px}
+.czbc {顶部：188px; }
+.zbbc {顶部：191px;}
+.sdcg，.sdsc a {font-size：14px; 显示：块; 位置：绝对的; 顶部：145px; z-index的：9}
+.sdsc a {right：110px;}
+.sdcg {颜色：＃060;右：100像素;}
+.xzgb {宽度：109px;高度：33px; 行高：33px; background-position：-1px -308px; 背景色：#FFF; color：#FFF; display：block; border：0 none; cursor：pointer; 字体大小：14px的; 字体重量：粗体; 边距：10px的}
+.ptsl {宽度：110px; 高度：80px; 位置：绝对的; 顶部：25px的;右：-9px; 的z-index：9; 文本对齐：中心}
+.ptsl a {text-decoration：none}
+.fzsgj {高度：20像素;位置：绝对的; 顶：112px;右：220px;}
+.fzsgj_zi {高度：20像素;位置：绝对的; 顶：111px; 右：115px; 行高：25像素}
+.pldb {宽度：774px; 高度：60像素; 位置：相对}
+.szcg {position：absolute; 顶部：-10px; 左：200像素; 字体：12px / 35px'微软雅黑'; 颜色：#FFF; 背景：＃090; 宽度：70像素; 高度：35px; 文本对齐：中心; 的z-index：9}
+.cwts {宽度：774px; 高度：140px; 位置：绝对的; 顶部：500像素;左边：0; z索引：1000; 背景：#EBEEFF;}
+.cwts_a {宽度：150像素; 高度：125px; 向左飘浮; 填充：10px 30px 0}
+.cwts_a1 {宽度：150像素; 高度：80px; 边框：1px solid #CCC}
+.cwts_a1 p {width：135px; 高度：25像素; 文本对齐：左;颜色：＃000; 字体：14px / 25px'微软雅黑'; 填充左：15px的}
+.cwts_lj1，.cwts_lj2，.cwts_lj3 {字体大小：16px的; 字体重量：粗体;文字修饰：下划线}
+.cwts_lj1 {颜色：＃090;}
+.cwts_lj2 {颜色：＃F00;}
+.cwts_lj3 {COLOR：＃000}
+答：hover.cwts_lj1 {COLOR：＃090}
+答：hover.cwts_lj2 {COLOR：＃F00}
+.gbck {宽度：150像素; 高度：20像素; text-align：center;字体：12px / 20px'微软雅黑'; 填充顶：7px的; 边距：15px的}
+.cwts_b {宽度：562px; 高度：140px; 向左飘浮; 最大高度：140px; 溢出-Y：滚动}
+.cwts_b li {width：540px; 高度：19px; 文本对齐：左; 行高：19px}
+.cwts_b_cw {COLOR：＃F00}
+.plfb_crtext {宽度：157px; 背景：#FFF; 填充：10px 10px 2px}
+.plfb_crtext p {padding-bottom：8px}
+.plfb_crtext textarea {width：144px; 高度：40像素; 溢出：隐藏; 填充：5像素; 显示：内联; 调整：无; 字体大小：12像素;}
+.plfb_crtext输入{width：75px; 高度：30PX; 字体：14px / 30px“微软雅黑”; 显示：内联; 光标：指针;}
+.plfb_crtext输入＃batch_content_submit_clear {margin-left：3px}
+.plfb_crtext标签{margin-right：10px}
+.plfb_crtext input.radios {width：13px; 高度：14px的; 余量：0; 垂直对齐：中}
+/ **批量转播** /
+.zb {width：630px; border-bottom：1px solid #ccc; 高度：230px; 边距：10px的; 位置：相对;}
+.zb_srk {宽度：55像素; 高度：220px; text-align：center;字体：40px / 200px'微软雅黑'; 颜色：＃999}
+.zb_srz1，.zb_srz2 {宽度：400像素; 高度：20像素; 字体大小：14px的;位置：绝对的; 左：60像素}
+.zb_srz1 {顶部：1px的;}
+.zb_srz2 {顶部：60像素;}
+.zb_dz {宽度：460像素;高度：20像素; line-height：20px; padding：5px; border：1px solid＃B1995C; background：#fff; 位置：绝对的; 顶部：20像素; 右：100px的; 的z-index：1;}
+.zb_fz {位置：绝对的;顶部：27px; 右：0}
+.zbcg_a {字体大小：14px的;位置：绝对的; 顶部：-10px; 右：250像素; 背景：无;颜色：#FFF; 的z-index：1; 背景：＃093; 显示：块; 文本对齐：中心; 宽度：280像素; 高度：30PX; 行高：30PX}
+.zbsc a {font-size：14px; 显示：块; 位置：绝对的; 顶：175px; 右：150像素; 的z-index：90; 背景：无;}
+.zb_srk_a {width：460px; height：62px; padding：5px; border：1px solid＃B1995C; background：#fff; 位置：绝对的; 顶部：25像素; 右：100px的; 的z-index：1; 溢出：隐藏}
+.pl_rit {位置：绝对的;顶部：500像素; z索引：995;}
+.fd_ys {宽度：177px; 填充：10px 0; border-top：1px点缀#ccc; 背景：#FFF; }
+.fd_ys div.content {width：100％; }
+.fd_ys div.content p {padding-left：6px}
+.fd_ys div.content p.til {padding-left：0; 文本对齐：中心; 颜色：＃666}
+.fd_ys div.content p.til strong {color：＃F00; 字体大小：14px的}
+.fd_ys div.content_operating {display：; 填充：10px 0}
+.fd_ys p.content_operating_bottom {font-size：14px; }
+.fd_ys p.content_operating_bottom a.lef {width：100px; 高度：20像素; 显示：内联块; 保证金：5px 0 0 10px; background-position：0 -1075px; 颜色：＃666668; 填充左：15像素; 行高：20像素}
+.fd_ys p.content_operating_bottom a.rig {width：38px; 高度：32PX; 显示：块; background-position：-253px -135px; 背景颜色：＃DCDFF2}
+.fd_ys_srk {宽度：97px; family：宋体; 边框：#CCC 1px solid; 背景：#FFF; 行高：23像素;字型家族：“微软雅黑”; 颜色：＃666; 填充左：3px的}
+.fd_ys_an {宽度：55像素;高度：25像素; 显示：内联块; 光标：指针; 字体：14px / 25px'微软雅黑'; 保证金左：10px的}
+.fd_ys_fb {宽度：135px; 高度：48像素; background-position：-142px 0; 边界：0无; 颜色：#FFF; 光标：指针; 字体大小：14px的; 字体重量：粗体; 显示：块; 行高：×45像素; 保证金：5px 0 5px 17px}
+.fd_ys_fb：悬停{background-position：-142px -52px}
+a.fd_ys_db {宽度：51px; 高度：15px的; background-position：-266px -144px; display：block; 文本对齐：左; 行高：15像素; 保证金：5px auto; 填充左：18像素; 颜色：＃98999B}
+a.fd_ys_db：悬停{COLOR：＃98999B}
+.batch_edit_text_one {color：＃333}
+.batch_edit_text_two {颜色：＃999; 字体大小：12px的}
+.batch_edit_maue {宽度：140px; 高度：28px; 保证金：10px auto 0; 填充：20px 0 10px}
+.batch_edit_maue输入{width：98px; 高度：28px; background-position：-142px -102px; 边界：0; 垂直对齐：中部; 保证金权：10px的; 光标：指针; font：bold 14px / 28px'微软雅黑'; 颜色：#FFF;}
+.batch_edit_maue输入：悬停{background-position：-142px -138px}
+.batch_edit_maue a {color：＃999}
+.batch_edit_prompt {宽度：230px; 高度：30PX; 保证金：30px auto 0; background-position：-247px -102px; 填充左：40像素; 字体：14px / 30px'微软雅黑'}
+/ **最新** /
+.body_new_1，.body_new_2，.body_new_3 {位置：绝对的; z索引：9}
+.body_new_1 {顶部：-10px; 左：70像素;}
+.body_new_2 {顶部：7px的; 左：300像素;}
+.body_new_3 {顶部：-4px; 离开：30PX}
+
+/ **常用广播** /
+.cyzb_nr {宽度：620px; 保证金：0自动5px; 填充：0 5px; 溢出：隐藏;}
+a.cyzb_nr_up，a.cyzb_nr_down {宽度：19px; 高度：24px的; 显示：块; background：url（../ images / jiantou.png）no-repeat; 边距：35px}
+a.cyzb_nr_up {background-position：0 0; 向左飘浮;}
+a.cyzb_nr_down {background-position：-29px 0; 浮动：右}
+a.cyzb_nr_up：悬停{background-position：-56px 0}
+a.cyzb_nr_down：悬停{background-position：-85px 0}
+.cyzb_nr ul {width：565px; height：105px; 填充左：10px的;}
+.cyzb_nr ul li {float：left; 保证金左：4PX; display：inline; position：relative}
+.cyzb_nr ul a {width：60px; 高度：960x75像素; display：block; text-align：center; padding：15px 8px 10px; overflow：hidden; }
+.cyzb_nr ul a：hover {background：#DFEAFF; 文字修饰：无;}
+.cyzb_nr ul a.current，.cyzb_nr ul a.current：link，.cyzb_nr ul a.current：visited {background：#DFEAFF; 颜色：＃06C}
+.cyzb_nr_selected {宽度：16px的; 高度：知识+; background-position：-113px 0; 位置：绝对的; 顶部：46px; 右：14px的; 光标：指针}
+/ *
+  .cyzb_nr_selected {background-position：0 -464px; 背景附件：滚动; background-color：transparent; cursor：pointer; height：12px; position：absolute; right：13px; top：58px; width：12px;}
+.cyzb_nr_selected span {width：27px; 高度：6像素; 显示：块}
+.cyzb_mark1 {background：#FFCC99; 向左飘浮}
+.cyzb_mark2 {background：＃AABEF9; 浮动：右}
+.cyzb_mark_no {width：27px; 高度：8像素; 溢出：隐藏; 保证金：0自动}
+** /
+.cjfz {宽度：70像素; 高度：20像素;浮动：右;行高：23像素}
+.sxfy_top {宽度：20像素; 高度：20像素; background：url（../ images / maue_a.png）0 -47px;}
+.sxfy_down {宽度：20像素; 高度：20像素; 边距：10px的; background：url（../ images / maue_a.png）0 -90px;}
+.tj_a {显示：块;宽度：230px; 高度：20像素;浮动：左; 填充左：20像素; 边距：3px的}
+.tj_a input {width：16px; 高度：20px; vertical-align：top; 向左飘浮; 光标：指针}
+.tj_a label {cursor：pointer; 显示：块; 高度：20像素; 行高：的22px; 向左飘浮; 颜色：＃06C; 保证金左：2px的; 显示：内联}
+
+/ * @好友与话题浮层* /
+.topic_div {padding：4px; border：1px solid＃999; background：#fff; width：150px; z-index：9999;}
+.topic_div a {padding：0 3px; display：block; font：13px / 20px'微软雅黑'}
+.topic_div a：悬停{background：＃D2E9FA; text-decoration：none}
+.topic_ht {padding：6px; border：1px solid #ccc; background：#fff; width：150px; z-index：9999; 最大高度：200像素; overflow-y：scroll; overflow-x：hidden;}
+.topic_ht div {border-bottom：1px点缀#ccc; margin-bottom：5px; padding-bottom：3px;}
+.topic_ht li {身高：25px; 行高：25像素; 填充：0 10px; 宽度：110px; 溢出：隐藏;}
+.topic_ht li a {color：＃333;}
+.topic_ht li a：hover {color：＃333; 文字装饰：无}
+
+/ **内容库** /
+.b_nrk_right {宽度：630像素; 向左飘浮; 显示：内联; 填充底：20像素;}
+.b_nrk_right输入{font-family：'微软雅黑'}
+.b_nrk_top {宽度：625px; 行高：30像素; 保证金：0自动10px;}
+.b_nrk_top .Time_Prompt {margin-bottom：5px}
+.send_all {padding：10px 0;}
+.send_all输入{margin-left：10px; 向左飘浮}
+.send_all input.check {margin：5px 5px 0 8px}
+.b_nrk_nav {padding-bottom：10px}
+.b_nrk_nav a {display：inline-block; 行高：20像素; 填充：0 8px;}
+.b_nrk_nav a.nor {text-decoration：none; 背景：＃09F; 颜色：#FFF; 边界半径：3px的}
+.b_nrk_nav span {margin-left：10px; 颜色：＃999;}
+.b_nrk_SonNav {padding-bottom：8px; }
+.b_nrk_SonNav a {margin-right：3px; 显示：内联块; 颜色：＃333}
+.b_nrk_SonNav a.current {color：＃F60}
+.b_nrk_txt {width：30px; 高度：20像素; 行高：20像素; 边距：3px的; 向左飘浮}
+.b_nrk_hyh {宽度：80px; 高度：25像素; 光标：指针; 显示：块; 字体：12px / 20px'微软雅黑'; 保证金：3px 0 0 15px; 显示：内联;}
+.b_nrk_ymtz {宽度：40像素; 高度：20像素; 行高：20像素; 保证金：5px 10px 0 20px; 显示：内联}
+.b_nrk_topmaue {width：70px; 高度：20px;保证金：5px 5px 0 0;}
+.b_nrk_search {width：106px; 高度：20像素; border：1px solid＃98B8E9; 保证金：10px 0 0 5px; 背景色：#FFF; }
+.b_nrk_search input.txt {width：81px; 高度：20像素; 边界：0; 行高：20像素; 概述：无}
+.b_nrk_search input.button {width：20px; 高度：20像素; 边界：0; background-position：5px -653px; 光标：指针;}
+.b_nrk_body {宽度：625px; 填充底：10px的; border-bottom：1px dashed #CCC; 位置：相对; 边距：10px的}
+.b_nrk_body .thumb {float：right; 宽度：172px; border：1px solid #CCC;}
+.b_nrk_body .thumb a {display：block; 保证金：1px的; 宽度：170像素; 高度：121px; 溢出：隐藏;}
+.b_nrk_time {宽度：300像素; 边框：＃E6E6E6 5px solid; 位置：绝对的; 顶：300像素; 左：130px; 的z-index：9; 背景：#FFF; 填充：3px 0 5px}
+.b_nrk_pt {margin：10px 0 0 10px}
+.b_nrk_pt_a，.b_nrk_ht，.b_nrk_bq {高度：25像素; 显示：块; background-position：0 -334px; 填充左：18像素; 行高：25像素; 显示：内联}
+.b_nrk_pt_a {background-position：0 -332px; 宽度：55像素; 保证金：5px 0 0 65px}
+.b_nrk_ht {background-position：2px -308px; 宽度：30PX}
+.b_nrk_bq {background-position：0 -432px; 宽度：×45像素}
+.b_nrk_time_input {宽度：60像素; 高度：25像素; 保证金：3px 0 0 5px; 显示：内联; 字体大小：12像素; 行高：的22px}
+.b_nrk_nr {宽度：420PX; 高度：123px; 溢出：隐藏; border：1px solid＃7F9DB9; 字体大小：14px的; 填充：5像素; 保证金左：1px的; FONT-FAMILY： '微软雅黑'; 行高：20像素;}
+.b_nrk_nr2 {宽度：450像素; 高度：25像素; 位置：相对}
+.b_nrk_nr2 .pl_check {margin：5px 10px 0 8px; 向左飘浮}
+.b_nrk_p span {width：70px; 填充左：10px的; 高度：的22px; 显示：内联块; 向左飘浮; 行高：25像素; * margin-top：3px}
+.b_nrk_p img，.b_nrk_p a {vertical-align：middle}
+.b_nrk_p a.tips {text-align：left; 颜色：＃F00; 向左飘浮; margin-right：60px; width：70px; display：block; height：25px; line-height：25px;}
+.b_nrk_p {宽度：610px; 填充：10px 0 0 0px; 高度：25像素; 垂直对齐：中部;}
+.b_nrk_nr2 .files {padding：3px 15px 0 0}
+a.ignore {显示：内联块; 高度：25像素; 行高：25像素; background-position：0 -935px; 保证金：2px 0 0 15px; 填充左：19px;}
+.b_nrk_maue，.b_nrk_maue1 {宽度：80px; 高度：25像素; 字体大小：12像素; 向左飘浮; 光标：指针; 保证金：0 15px 0 5px; 显示：内联; 行高：20像素; 字体重量：粗体; 边框：0}
+.b_nrk_maue {background-position：0 -960px; 颜色：#FFF;}
+.b_nrk_maue：悬停{background-position：0 -1054px;}
+.b_nrk_maue1 {background-position：-85px -1054px; 颜色：＃333}
+.b_nrk_maue1：悬停{background-position：0 -1086px; 颜色：＃114F8D}
+.b_nrk_maue_color {color：＃06F}
+.b_nrk_time1 {background-position：80px 4px; background-color：#FFFFFF; border：1px solid＃7E9DDD; cursor：pointer; font-family：'微软雅黑'; height：22px; line-height：22px; width：102px; 保证金：3px 0 0 5px; 垂直对齐：顶部; 向左飘浮; 显示：内联}
+.b_nrk_time2 {width：45px; height：22px; border：1px solid＃7F9DB9; margin：3px 0 0 3px; vertical-align：top; 显示：内联; 向左飘浮}
+.b_nrk_span {浮动：左; 显示：块; 填充：0 3px; 行高：30PX}
+.b_nrk_pic {宽度：176px; 位置：绝对的; 顶部：0; 右：8像素; 文本对齐：中心}
+a.b_nrk_movie {display：block}
+a.b_nrk_movie img {width：170px; 高度：129px;}
+a.b_nrk_movie span {width：42px; 高度：42PX; 显示：块; 背景位置：-127px -580px; 位置：绝对的; 顶部：30％; 左：40％; z-index：999}
+.nrk_pic {宽度：170像素; 高度：129px; border：1px solid #CCC; 填充：2px的; 位置：相对}
+.nrk_pic p {身高：65px; 填充顶：20像素; 行高：24像素;}
+.b_nrk_pic_a {display：block; 宽度：170像素; 高度：129px; 溢出：隐藏; line-height：122px;}
+.b_nrk_pic img {display：inline-block; vertical-align：middle;}
+.b_nrk_dsts {字体大小：12像素; 高度：15px的; 宽度：550px;填充左：20像素; 行高：15像素; 颜色：＃999}
+.b_nrk_dsts span {color：＃090}
+.b_nrk_szcg {背景：＃090; 文本对齐：中心; 高度：20像素; 字体大小：12像素; 宽度：70像素; 行高：20像素; 填充：0 5px; 颜色：#FFF; 位置：绝对的; 顶部：43px; 右：135px; 的z-index：999}
+.b_nrk_srz {身高：20px; 保证金左：-15px; 字体大小：12像素; 行高：25像素}
+.b_nrk_fzsgj {position：absolute; 顶：130px; 右：27px}
+.nrk_pic .conlib-multipic a {float：left; 宽度：52px; 高度：40像素; 保证金：0 0 2px 4px; 行高：40像素}
+.nrk_pic .conlib-multipic a img {width：100％; 高度：100％;}
+.nrk_associate {padding：5px 7px 0 0}
+.nrk_associate a {width：19px; 高度：16px的; 显示：内联块; background：url（../ images / nrk_pic.png）no-repeat; 保证金右：8像素;}
+.nrk_associate a.open_sina {background-position：0 0}
+.nrk_associate a.close_sina {background-position：0 -23px}
+.nrk_associate a.open_tencent {background-position：-24px 0}
+.nrk_associate a.close_tencent {background-position：-24px -23px}
+.nrk_associate a.open_sohu {background-position：-48px 0}
+.nrk_associate a.close_sohu {background-position：-48px -23px}
+.nrk_associate a.open_163 {background-position：-72px 0}
+.nrk_associate a.close_163 {background-position：-72px -23px}
+.b_nrk_p span.nrk_dsts {width：auto; 位置：绝对的; 左：150像素; 底部：12px的; 的z-index：9; 背景：＃009900; 颜色：#FFF; 显示：块; 填充：3px 5px}
+.b_nrk_tctime {position：absolute; 顶部：50像素; 左：60像素; 的z-index：999; 填充：5px 0 5px 7px; 背景：#FFF; border：4px solid #ccc}
+.b_nrk_tctime_p2 {身高：30px; 填充底：5像素; 宽度：435px}
+.b_nrk_tctime_check {width：13px; 高度：13像素; 保证金：8px 5px 0 0; 光标：指针}
+.b_nrk_tctime_label {cursor：pointer; 边距：7px的}
+.b_nrk_tctime_butom {width：70px; 高度：25像素; 行高：23像素; 边距：2px的; 光标：指针; 保证金左：60像素; 显示：内联}
+.nrk_page {padding：10px 0}
+.nrk_page ul {padding-left：2px}
+.nrk_page ul li {width：49px; family：宋体; border：1px solid #ccc; 向左飘浮; 保证金左：5px的}
+.nrk_page ul li.direct {width：21px; 字体大小：16px的}
+.nrk_page ul li.direct a {line-height：21px}
+.nrk_page ul li.direct a span {width：3px; 高度：9px; 显示：内联块; 溢出：隐藏; 文本对齐：中心; 垂直对齐：中部; 行高：9px; 保证金右：-3px}
+.nrk_page ul li.direct a span.ri {margin：0 0 0 -3px}
+.nrk_page ul li a {width：100％; 高度：100％; 显示：内联块; 颜色：＃333; 文本对齐：中心; 行高：23像素; 文本对齐：中心}
+.nrk_page ul li a：hover，.nrk_page ul li a.current {text-decoration：none; 颜色：#FFF; 背景色：＃0099FF}
+.nrk_page div.SG {font-size：14px; 填充：15px 10px 0; 行高：25像素}
+.nrk_page div.SG div.le {float：left; 宽度：157px;}
+.nrk_page div.SG input.random {width：80px; 高度：25像素; *行高：15像素; 光标：指针; 保证金左：100px的; *向左飘浮; 边距：1px的;}
+.nrk_page div.SG div.ri {float：right; 宽度：145px;}
+.nrk_page div.SG div.ri input.text {width：35px; 高度：20像素; 行高：20像素; FONT-FAMILY： “微软雅黑”; 文本对齐：中心; 垂直对齐：中部; 边框：1px solid＃999}
+.nrk_page div.SG div.ri input.go {width：50px; 高度：25像素; 光标：指针; 行高：18像素; *行高：15像素; 垂直对齐：中}
+
+
+/ **图文微博** /
+.qzwb {宽度：440px; 保证金：0自动}
+.qzwb_maue {width：440px; 高度：35px; 边距：5px的}
+.qzwb_maue a {width：25px; 高度：25像素; border：1px solid #DFDFDF; 显示：块; background：url（../ images / tw_weibo.png）no-repeat; 向左飘浮; 保证金右：5px的; 显示：内联;}
+.qzwb_maue a：hover，.qzwb_maue a.nor {border：1px solid＃32A1CC; 文字装饰：无}
+.qzwb_maue a.one_bj {background-position：0 -315px}
+.qzwb_maue a.two_bj {background-position：-39px -315px}
+.qzwb_maue a.three_bj {background-position：-85px -315px}
+.qzwb_maue a.four_bj {background-position：-135px -315px}
+.qzwb_maue a.five_bj {background-position：-213px -315px}
+.qzwb_maue a.six_bj {background-position：-251px -315px}
+.qzwb_maue a.seven_bj {background-position：-286px -315px}
+.qzwb_maue a.eight_bj {background-position：-175px -315px}
+.qzwb_js {宽度：610px; 填充：10px的; 高度：40像素; 字体：14px / 20px'微软雅黑'; 背景：＃E1F5FE; 颜色：＃000}
+.qzwb_div {宽度：440px; 高度：20像素; 填充顶：10px的}
+.qzwb_bj_top，.qzwb_bj_top_two，.qzwb_bj_top_three，.qzwb_bj_bot_three，.qzwb_bj_top_four，.qzwb_bj_bot_four，.qzwb_bj_top_five，.qzwb_bj_bot_five，.qzwb_bj_top_six，.qzwb_bj_bot_six，.qzwb_bj_top_seven，.qzwb_bj_bot_seven，.qzwb_bj_top_eight，.qzwb_bj_bot_eight {宽度：440px;背景：网址（ ../images/tw_weibo.png）no-repeat}
+.qzwb div.list {overflow-y：auto; 溢出 -  X：隐藏;高度：160像素;}
+.qzwb_bj_top {高度：32PX; background-position：0 0}
+.qzwb_bj_middle {宽度：438px; border：1px solid＃E1D7B9; 填充顶：10px的; border-width：0 1px;}
+.qzwb_bj_bot {宽度：438px; 高度：7px的; border：1px solid＃E1D7B9; 边框顶部：0; 溢出：隐藏}
+.qzwb_bj_top_two {高度：26px; 背景位置：0 -44px}
+.qzwb_bj_middle_two，.qzwb_bj_bot_two {border-color：＃CFD6E7; 背景：＃FEFDF7;}
+.qzwb_bj_top_three {身高：40px; 背景位置：0 -82px}
+.qzwb_bj_middle_three {填充顶：3px的; 边框颜色：#CDCDCD; 背景：#FFFAEB;}
+.qzwb_bj_bot_three {身高：53px; 边框颜色：#CDCDCD; background-position：0 -136px; 底部边框：0}
+.qzwb_bj_top_four {身高：12px; background-position：0 -200px; 溢出：隐藏}
+.qzwb_bj_middle_four {填充顶：16px的; 边框颜色：＃DBCDB0;}
+.qzwb_bj_bot_four {width：440px; 高度：52px; background-position：0 -225px; 边框：0}
+.qzwb_bj_middle_three textarea {color：＃23739B; 行高：26px}
+.qzwb_bj_middle_two textarea {color：＃70819F}
+.qzwb_ylnr {宽度：387px; 高度：100像素; 溢出：隐藏; 保证金左：25px的; 边界：无; 背景：无; 显示：块; 概述：无; 调整大小：无}
+.qzwb_ylnr_a {宽度：438px; 高度：80px; 溢出：隐藏; 边框：1px solid＃B1995C}
+.qzwb_pic {宽度：429px; 高度：500px;边框：1px实心＃B1995C;填充：5px; 保证金：5px 0 20px;}
+.qzwb_txt {字体大小：12像素; 颜色：＃333}
+.qzwb_txt em {font-family：Arial，'微软雅黑'，'Simhei'}
+.qzwb_loading {padding：10px 8px; border：5px solid #ccc; 背景：#FFF; 位置：绝对的; 左：110px; 顶部：40％; 的z-index：9999}
+.qzwb_loading_bar {width：100％; 高度：230px; 位置：绝对的; 左：0; 顶部：50像素; 的z-index：999; 背景：#FFF; 滤波器：α（不透明度= 50）;  -  MOZ不透明度：0.5;不透明度：0.5; 显示：无}
+.qzwb_loading img {vertical-align：middle}
+.qzwb_bj_top_five {height：24px; background-position：0 -351px; }
+.qzwb_bj_middle_five {width：440px; background：url（../ images / tw_weibo_five.jpg）repeat-y 7px 0; 边界：0; 填充顶：3PX}
+.qzwb_bj_middle_five textarea {color：＃503105; 行高：24px的}
+.qzwb_bj_bot_five {height：21px; background-position：0 -377px; 边框：0}
+.qzwb_bj_top_six {高度：15像素; background-position：0 -401px;}
+.qzwb_bj_bot_six {高度：13像素; background-position：0 -420px;}
+.qzwb_bj_middle_six {width：440px; background：url（../ images / tw_weibo_six.jpg）repeat-y; 边框：0}
+.qzwb_bj_middle_six textarea {color：＃743313; 行高：30像素;}
+.qzwb_bj_top_seven {身高：43px; 背景位置：0 -440px}
+.qzwb_bj_bot_seven {身高：31px; background-position：0 -492px}
+.qzwb_bj_middle_seven {width：440px; background：url（../ images / tw_weibo_seven.jpg）repeat-y; 边界：0; 填充顶：1px的}
+.qzwb_bj_middle_seven textarea {color：＃753511; 行高：24像素; }
+.qzwb_bj_top_eight {身高：38px; background-position：0 -528px}
+.qzwb_bj_bot_eight {身高：14px; 背景位置：0 -572px}
+.qzwb_bj_middle_eight {width：440px; background：url（../ images / tw_weibo_eight.jpg）repeat-y; 边界：0; 填充顶：0}
+.qzwb_bj_middle_eight textarea {width：387px; 颜色：#FFF; 行高：25像素; 填充：0 5px}
+/ **我的钱包** /
+.mywallet_srzh {宽度：90％; 高度：25像素; 保证金：10px auto; 行高：25像素}
+.mywallet_srzh span {font-weight：bold}
+.mywallet_f14 {font-size：14px}
+.mywallet_p1 {宽度：95％; 保证金：0自动}
+.mywallet_cwxx {宽度：500像素; 保证金：50px auto 0;}
+.mywallet_cwxx p {身高：25px; 行高：25像素; 边距：10px的}
+.mywallet_cwxx p input {width：250px; 高度：25像素; 行高：25像素; 垂直对齐：中部; 边框：1px实心＃7A7A7A; 光标：文字}
+.mywallet_cwxx_p1 {填充左：14px的}
+.mywallet_cwxx_sk {宽度：500像素; 高度：28px; 边距：10px的; 位置：相对}
+.mywallet_cwxx_sk_div {宽度：235px; 高度：28px; 边框：1px实心＃7A7A7A; 文本对齐：左; 行高：23像素; 填充左：15px的}
+.mywallet_cwxx_sk_div a {width：28px; 高度：28px; 显示：块; background：url（../ images / qypt_maue.png）no-repeat -219px -60px}
+.mywallet_cwxx_mane {padding：20px 0 50px 70px}
+.mywallet_cwxx_mane输入{width：102px; 高度：35px; background-position：0 -83px; 边界：0; 光标：指针; 文本对齐：中心; 行高：35px}
+.mywallet_cwxx_bank {宽度：250像素; 边框：1px实心＃7A7A7A; 位置：绝对的; 顶部：29px; 左：70像素; 的z-index：99; 背景：#FFF}
+.mywallet_cwxx_bank li {width：250px; 高度：25像素;}
+.mywallet_cwxx_bank li a {width：235px; 高度：25像素; 显示：块;颜色：＃000; 文字修饰：无; 文本对齐：左; 填充左：15像素; 行高：25像素;}
+.mywallet_cwxx_bank li a：hover {color：＃000; 文字修饰：无; 背景：＃3199FF; 颜色：#FFF}
+.mywallet_cwxx_mag {边距：5px的}
+.mywallet_cwxx_mag1 {margin-top：3px; 颜色：＃333}
+.mywallet_fkgz {宽度：90％; 保证金：20px auto 0; 边框：1px solid #CCC}
+
+/ *图片库* /
+.pp_tuku_nav {宽度：630像素; 高度：20像素; 填充：0 0 5px 4px; border-bottom：1px solid #CCC; 保证金：10px auto}
+.pp_tuku_body {宽度：630像素; 保证金：10px auto}
+.pp_tuku_body li {width：210px; 高度：180像素; 向左飘浮;}
+.pp_tuku_body li a {margin：0 auto 4px; 显示：块; 文本对齐：中心;}
+.pp_tuku_body li a img {border：1px solid #CCC; 填充：2px的}
+
+/ *我的图片库弹窗* /
+.my_images_tc {width：170px; 高度：129px; 显示：块; border：1px solid #CCC; 填充：2px的; 文本对齐：中心;}
+.my_images_tc a {display：inline-block; vertical-align：middle; width：170px; 高度：129px; 溢出：隐藏; 位置：相对}
+.my_images_tc span {width：0; 高度：100％; 显示：内联块; 垂直对齐：中部;}
+：root .my_images_tc div {filter：none \ 9;}
+.my_images_tc div {position：absolute; 底部：0; 左：0; 宽度：100％; 高度：25像素; 背景：RGBA（0,0,0,0.4）; 滤波器：的progid：DXImageTransform.Microsoft.gradient（启用= '真'，startColorstr = '＃66000000'，endColorstr = '＃66000000'）; 颜色：#FFF; 文本对齐：中心; 行高：25像素}
+
+/ *单条转播显示* /
+.one_zb_zfWrap {width：270px; 高度：188px; 边界：1px solid gainsboro; 背景：#FFF; 位置：绝对的; 顶部：85px; 右：10px的; 的z-index：1; 边距：5px的; display：inline; padding：0 8px 14px;}
+.one_zb_SA {位置：绝对的; 顶部：7px的; 左：-9px;}
+.one_zb_SA em，.one_zb_SA span {height：18px; 宽度：9px; 颜色：亮灰; 位置：绝对的; 字体：16px / 21px simsun; 溢出：隐藏; }
+.one_zb_SA em {z-index：99; 字体风格：正常; }
+.one_zb_SA span {color：#fff; top：0; 左：2px的; 的z-index：999; }
+.one_zb_top {padding：5px 5px 0 5px; 字体重量：粗体; 字体大小：12px的}
+.one_zb_body {font：12px / 20px Tahoma，Arial，sans-serif; 填充：0 5px}
+.one_zb_bot {padding：5px 0 0 5px}
+.one_zb_none {width：100％; 高度：188px; 文本对齐：中心;}
+.one_zb_none p {font-size：15px; 填充：5px 0 10px; 颜色：＃666}
+.one_zb_none img {width：100％; 高度：154px}
+
+/ ** @微群** /
+.atweiqun_top {高度：28px;溢出：隐藏; 保证金：0 1px; 填充：0 6px; background：url（../ images / atweiqun_top.png）repeat-x;}
+a.atweiqun_nav {display：inline-block; 高度：28px; 行高：28px; 填充：0 12px; 颜色：＃333; border-left：1px solid #CCC; border-right：1px solid #ccc; 保证金左：-7px; 向左飘浮}
+a.atweiqun_nav：hover {text-decoration：none}
+a.atweiqun_nav_nor {background：#FFF;}
+ul.atweiqun {width：300px; 溢出-Y：滚动; 溢出 -  X：隐藏;高度：185px; 填充：0 10px}
+p.search {width：310px; 高度：27px; 填充：0 0 10px 10px;}
+p.search input.button {width：50px; 高度：的22px; border：1px solid #ccc; 边距：5px的; 光标：指针; 背景：#FFFFFF; 文本对齐：中心; 行高：20像素; 颜色：＃06C}
+ul.atweiqun li {width：285px; 高度：25像素; 填充：2px 0; border-bottom：1px solid #EAEAEA}
+ul.atweiqun li a {width：275px; 高度：25像素; 显示：块; 溢出：隐藏; 行高：25像素; 填充左：10px的}
+ul.atweiqun li a span.at {color：＃333}
+ul.atweiqun li a span.close {float：right; 保证金右：5px的; 颜色：＃333}
+ul.atweiqun li a span.nor {color：＃06c}
+ul.atweiqun li a span.close_none {display：none}
+ul.atweiqun li a：hover {background：＃D2E9FA; color：＃333; 文字装饰：无}
+.atweiqun_add {margin：6px 0 0 10px; 显示：内联块}
+
+/ **多帐号发送弹窗** /
+.multi_site {文本对齐：中心; 保证金：10px 0; 填充：0 10px}
+.multi_site strong {font-size：14px; 颜色：＃E95A00; 保证金：0 5px}
+.multi_site输入{height：20px; 垂直对齐：中部; 行高：20像素; 宽度：40像素; 保证金：0 5px; 文本对齐：中心; 字体大小：14px的}
+.multi_site input.btn {width：50px; 高度：25像素; 行高：25像素; FONT-FAMILY： “微软雅黑”; 字体大小：14px的}
+.multi_account {padding-top：5px}
+.multi_account .tils {height：30px; 背景色：＃F5F5F5; 行高：30像素; 填充：0 10px; 保证金：0 10px}
+.multi_account .tils em {width：16px; 高度：16px的; 溢出：隐藏; 显示：内联块; background-position：0 -1187px; 垂直对齐：中部; 保证金右：3px的}
+.multi_account .tils label {float：right}
+.multi_account .tils标签输入{vertical-align：middle}
+.multi_account ul {border-bottom：1px dashed #ccc; 宽度：95％; 保证金：0自动;}
+.multi_account ul.public_photos li {position：relative; 保证金：0 0 10px 17px; 填充底：5像素; 高度：112px}
+.multi_account ul.public_photos li span {background-position：-113px 0; 宽度：16px的; 高度：知识+; 显示：块; 位置：绝对的; 顶部：33px; 右：3px的}
+.multi_account ul.public_photos li input {height：20px; 行高：20像素; 宽度：25像素; FONT-FAMILY： “微软雅黑”;文本对齐：中心}
+.multi_account h3 {font-size：14px; 填充左：30像素; 颜色：＃008000}
+.yc_box {宽度：95％; 保证金：0自动10px;}
+
+/ **弹窗头部特殊样式** /
+.wbhd_zb_box {宽度：527px; 浮动：权利; 背景：＃FFFCE9; border：1px solid #EBDEBC; 填充：0 8px 4px;}
+.wbhd_zb_top {width：511px; 高度：27px; 填充：4像素; 保证金：0自动}
+.wbhd_zb_top a {display：block;}
+.wbhd_zb_top a b.close {width：15px; 高度：15px的; 显示：块; background-position：-160px -195px; 边距：6像素}
+.wbhd_zb_top a b.close：hover {background-position：-180px -195px}
+.wbhd_inputTxt {宽度：170像素; 高度：知识+; 填充：2px 5px 0; border：1px solid＃7F9DB9; 边距：5px的; 位置：相对}
+a.wbhd_colse {宽度：15像素; 高度：15px的; 显示：块; background-position：-160px -195px; 边距：8像素;}
+a.wbhd_colse：悬停{background-position：-180px -195px}
+
+.qypt_ts_a {宽度：534px; 高度：100像素; 背景：＃F0F8FA; 填充：20px 50px 20px 40px; 保证金：10px auto 0}
+.qypt_ts_a dt {float：left; 高度：80px; 边距：15px的}
+.qypt_ts_a dd {float：left; width：450px; margin-left：20px; 显示：内联; 高度：20像素; 字体：14px / 20px“微软雅黑”}

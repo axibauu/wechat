@@ -1,0 +1,59 @@
+<!-- BEGIN PAGE HEADER-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a ui-sref="dashboard" th:text="#{app.home}">主页</a>
+        </li>
+    </ul>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <!-- BEGIN PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-bar-chart font-green"></i>
+                        <span class="caption-subject font-green bold uppercase" th:text="#{app.welcomeTip.title}">欢迎使用CPFS系统</span>
+                    </div>
+                    <div class="inputs">
+
+
+                       <!--  <div class="portlet-input input-inline input-small ">
+                            <div class="input-icon right">
+                                <i class="icon-magnifier"></i>
+                                <input type="text" class="form-control form-control-solid input-circle" placeholder="search..."> </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="scroller" style="height:auto;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                        <div class="general-item-list">
+                              <div class="col-md-12" ng-repeat="welcomeTip in welcomeList">
+                                <!-- BEGIN Portlet PORTLET-->
+                                  <li>{{welcomeTip.content}} </li>
+                                  111
+                                <!--<div class="portlet solid green" id="my_portlet">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-gift"></i>{{welcomeTip.content}}
+                                        </div>
+                                        <div class="tools">
+                                            <a ng-click="showWelcomeInfo(welcomeTip)" style="color: #fff">详情>>></a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <p ng-bind-html="welcomeTip.tdesc"></p>
+                                    </div>
+                                </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PORTLET-->
+        </div>
+    </div>
+</div>
+</div>
+</html>

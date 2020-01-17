@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gpower.modules.user.dao.GroupDao">
+
+    
+    <select id="selectGroupUserById" parameterType="java.lang.String"
+            resultType="com.gpower.modules.user.entity.User">
+select user.* from gpuser user,gpuser_group ugroup  where  user.ID=ugroup.userId and
+ ugroup.groupId=#{id}
+
+
+    </select>
+    <select id="selectGroupbyUserId" parameterType="java.lang.String"
+            resultType="com.gpower.modules.user.entity.Group"
+    >
+        select gp.* from gp_group gp ,gpuser_group ugroup where ugroup.userId=#{id} and
+         ugroup.groupId=gp.id;
+
+    </select>
+    
+    <delete id="deleteGroupUser" parameterType="java.lang.String">
+        DELETE FROM gpuser_group where groupId=#{id}
+
+    </delete>
+    <insert id="insertGroupUser"  >
+        INSERT INTO  gpuser_group(groupId,userId) VALUES(#{groupID},#{userID})
+    </insert>
+</mapper>

@@ -1,0 +1,13 @@
+{
+  "realm": "gpower",
+  "auth-server-url": "http://118.190.85.241:8080/auth",
+  "ssl-required": "none",
+  "resource": "medium",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "20c70413-6e5f-4875-b6ad-049105cf530c"
+  },
+  "use-resource-role-mappings": false,
+  "confidential-port": 0
+
+}
